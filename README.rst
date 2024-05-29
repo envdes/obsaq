@@ -2,10 +2,10 @@ ObsAQ: A Python package for accessing observational air quality data
 --------------------------------------------------------------------
 |docs| |GitHub| |license|
 
-.. |GitHub| image:: https://img.shields.io/badge/GitHub-ObsAQ-brightgreen.svg
+.. |GitHub| image:: https://img.shields.io/badge/GitHub-obsaq-brightgreen.svg
    :target: https://github.com/envdes/obsaq/ 
 
-.. |Docs| image:: https://img.shields.io/badge/docs-ObsAQ-brightgreen.svg
+.. |Docs| image:: https://img.shields.io/badge/docs-obsaq-brightgreen.svg
    :target: https://envdes.github.io/obsaq/
 
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
