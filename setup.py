@@ -24,6 +24,6 @@ setup(
     long_description=long_description,
     license="MIT",
     classifiers=classifiers,
-    install_requires=['pandas', 'numpy', 'pyreadr'],
+    install_requires=['pandas', 'pyreadr'],
     packages=find_packages(),
     )
