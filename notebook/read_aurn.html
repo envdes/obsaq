@@ -1,0 +1,1000 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Read the data from AURN &mdash; OBSAQ v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=19f00094" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="../_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="../_static/jquery.js?v=5d32c60e"></script>
+        <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js?v=f3b75425"></script>
+        <script src="../_static/doctools.js?v=888ff710"></script>
+        <script src="../_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+        <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+        <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Read the data from RData" href="read_rdata.html" />
+    <link rel="prev" title="Obtain the data from Rdata" href="download_rdata.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            OBSAQ
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
+</ul>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="download_aurn.html">Obtain the data from AURN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_rdata.html">Obtain the data from Rdata</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Read the data from AURN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude">Read the site data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-range">Choose the stations by range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Choose-a-site-by-site_id-and-read-it-directly">Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-data-by-a-point-of-longitude-and-latitude">Read data by a point of longitude and latitude</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="read_rdata.html">Read the data from RData</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../map.html">Check out the avaialble stations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">OBSAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Read the data from AURN</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebook/read_aurn.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Read-the-data-from-AURN">
+<h1>Read the data from AURN<a class="headerlink" href="#Read-the-data-from-AURN" title="Permalink to this heading"></a></h1>
+<section id="Read-the-site-data-by-a-bounds-of-longitude-and-latitude">
+<h2>Read the site data by a bounds of longitude and latitude<a class="headerlink" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude" title="Permalink to this heading"></a></h2>
+<p>Users can give a bounds of longitude and latitude to read the site data.</p>
+<section id="Load-the-OBSAQ-package-and-Define-the-range">
+<h3>Load the OBSAQ package and Define the range<a class="headerlink" href="#Load-the-OBSAQ-package-and-Define-the-range" title="Permalink to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">obsaq</span>
+
+<span class="n">lon_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">lon_max</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">lat_min</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">lat_max</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="n">lon_min</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Get-the-station-metadata">
+<h3>Get the station metadata<a class="headerlink" href="#Get-the-station-metadata" title="Permalink to this heading"></a></h3>
+<p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Choose-the-stations-by-range">
+<h3>Choose the stations by range<a class="headerlink" href="#Choose-the-stations-by-range" title="Permalink to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">final_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by bounds: [-1, 2, 50, 55]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+    <tr>
+      <th>rownames</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>364</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.662332</td>
+      <td>-0.270001</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>2017-10-01</td>
+      <td>ongoing</td>
+      <td>2023-12-31</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+    <tr>
+      <th>365</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.662332</td>
+      <td>-0.270001</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>2017-10-01</td>
+      <td>ongoing</td>
+      <td>2023-12-31</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+    <tr>
+      <th>366</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.662332</td>
+      <td>-0.270001</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>2017-10-01</td>
+      <td>ongoing</td>
+      <td>2023-12-31</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+    <tr>
+      <th>367</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.662332</td>
+      <td>-0.270001</td>
+      <td>PM10</td>
+      <td>PM10 particulate matter (Hourly measured)</td>
+      <td>2022-03-22</td>
+      <td>ongoing</td>
+      <td>2023-12-31</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+    <tr>
+      <th>368</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.662332</td>
+      <td>-0.270001</td>
+      <td>PM2.5</td>
+      <td>PM2.5 particulate matter (Hourly measured)</td>
+      <td>2022-03-22</td>
+      <td>ongoing</td>
+      <td>2023-12-31</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Choose-a-site-by-site_id-and-read-it-directly">
+<h4>Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly<a class="headerlink" href="#Choose-a-site-by-site_id-and-read-it-directly" title="Permalink to this heading"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;BDMP&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+https://uk-air.defra.gov.uk/data_files/site_data/BDMP_2018.csv
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>time</th>
+      <th>Nitric oxide</th>
+      <th>status</th>
+      <th>unit</th>
+      <th>Nitrogen dioxide</th>
+      <th>status.1</th>
+      <th>unit.1</th>
+      <th>Nitrogen oxides as nitrogen dioxide</th>
+      <th>status.2</th>
+      <th>unit.2</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01-01-2018</td>
+      <td>01:00</td>
+      <td>0.25166</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.75500</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.14087</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01-01-2018</td>
+      <td>02:00</td>
+      <td>0.12583</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>6.87575</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>7.06869</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01-01-2018</td>
+      <td>03:00</td>
+      <td>0.28312</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.78313</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>6.21723</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01-01-2018</td>
+      <td>04:00</td>
+      <td>0.22020</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>3.75899</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.09663</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01-01-2018</td>
+      <td>05:00</td>
+      <td>0.18874</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>3.27707</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>3.56647</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8755</th>
+      <td>31-12-2018</td>
+      <td>20:00</td>
+      <td>0.28836</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>12.08703</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>12.52918</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8756</th>
+      <td>31-12-2018</td>
+      <td>21:00</td>
+      <td>0.18023</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>8.29340</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>8.56974</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8757</th>
+      <td>31-12-2018</td>
+      <td>22:00</td>
+      <td>0.10814</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.52928</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.69508</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8758</th>
+      <td>31-12-2018</td>
+      <td>23:00</td>
+      <td>0.07209</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.77096</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.88150</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8759</th>
+      <td>31-12-2018</td>
+      <td>24:00</td>
+      <td>0.00000</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.17640</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.17640</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+  </tbody>
+</table>
+<p>8760 rows × 11 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="Read-data-by-a-point-of-longitude-and-latitude">
+<h2>Read data by a point of longitude and latitude<a class="headerlink" href="#Read-data-by-a-point-of-longitude-and-latitude" title="Permalink to this heading"></a></h2>
+<p>Users can give a point of longitude and latitude to read the station data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">obsaq</span>
+
+<span class="n">lon</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">55.0</span>
+<span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
+
+<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+    <tr>
+      <th>rownames</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>2003-08-01</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>5</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>SO2</td>
+      <td>Sulphur dioxide</td>
+      <td>2001-01-01</td>
+      <td>2007-09-30</td>
+      <td>2007-09-30</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
+<span class="n">final_sites</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by point: [0.0, 55.0]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+</pre></div>
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+site_id                                HM
+site_name                    High Muffles
+location_type            Rural Background
+latitude                        54.334497
+longitude                        -0.80882
+parameter                              O3
+Parameter_name                      Ozone
+start_date                     1987-07-16
+end_date                          ongoing
+ratified_to                    2023-12-31
+zone               Yorkshire &amp; Humberside
+agglomeration                         NaN
+local_authority                   Ryedale
+Name: 1200, dtype: object
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;HM&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+https://uk-air.defra.gov.uk/data_files/site_data/HM_2018.csv
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>time</th>
+      <th>Nitric oxide</th>
+      <th>status</th>
+      <th>unit</th>
+      <th>Nitrogen dioxide</th>
+      <th>status.1</th>
+      <th>unit.1</th>
+      <th>Nitrogen oxides as nitrogen dioxide</th>
+      <th>status.2</th>
+      <th>unit.2</th>
+      <th>Ozone</th>
+      <th>status.3</th>
+      <th>unit.3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01-01-2018</td>
+      <td>01:00</td>
+      <td>0.36708</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.00358</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.56642</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>65.32591</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01-01-2018</td>
+      <td>02:00</td>
+      <td>0.28550</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.06600</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.50376</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>65.85810</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01-01-2018</td>
+      <td>03:00</td>
+      <td>0.27531</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.22261</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.64474</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>67.15531</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01-01-2018</td>
+      <td>04:00</td>
+      <td>0.24472</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.26951</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.64474</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>66.40692</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01-01-2018</td>
+      <td>05:00</td>
+      <td>0.30590</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.16255</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.63159</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>66.20735</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8755</th>
+      <td>31-12-2018</td>
+      <td>20:00</td>
+      <td>0.30417</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.38387</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.85025</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>70.34843</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8756</th>
+      <td>31-12-2018</td>
+      <td>21:00</td>
+      <td>0.23657</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.27605</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.63879</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>70.39832</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8757</th>
+      <td>31-12-2018</td>
+      <td>22:00</td>
+      <td>0.33796</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.17346</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.69166</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>69.89939</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8758</th>
+      <td>31-12-2018</td>
+      <td>23:00</td>
+      <td>0.50694</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.44300</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.22030</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>68.85165</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8759</th>
+      <td>31-12-2018</td>
+      <td>24:00</td>
+      <td>0.40556</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.70419</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.32603</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>67.85380</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+  </tbody>
+</table>
+<p>8760 rows × 14 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="download_rdata.html" class="btn btn-neutral float-left" title="Obtain the data from Rdata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="read_rdata.html" class="btn btn-neutral float-right" title="Read the data from RData" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Haofan Wang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

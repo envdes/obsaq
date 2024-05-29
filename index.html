@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>obsAQ: A Python package for obtaining observational air quality data &mdash; OBSAQ v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
+      <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=19f00094" />
+
+  
+  <!--[if lt IE 9]>
+    <script src="_static/js/html5shiv.min.js"></script>
+  <![endif]-->
+  
+        <script src="_static/jquery.js?v=5d32c60e"></script>
+        <script src="_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+        <script data-url_root="./" id="documentation_options" src="_static/documentation_options.js?v=f3b75425"></script>
+        <script src="_static/doctools.js?v=888ff710"></script>
+        <script src="_static/sphinx_highlight.js?v=4825356b"></script>
+        <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+    <script src="_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="About" href="overview.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="#" class="icon icon-home">
+            OBSAQ
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#installation">Installation</a></li>
+</ul>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebook/download_aurn.html">Obtain the data from AURN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/download_rdata.html">Obtain the data from Rdata</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/read_aurn.html">Read the data from AURN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/read_rdata.html">Read the data from RData</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="map.html">Check out the avaialble stations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="#">OBSAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">obsAQ: A Python package for obtaining observational air quality data</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="obsaq-a-python-package-for-obtaining-observational-air-quality-data">
+<h1>obsAQ: A Python package for obtaining observational air quality data<a class="headerlink" href="#obsaq-a-python-package-for-obtaining-observational-air-quality-data" title="Permalink to this heading"></a></h1>
+<p><a class="reference external" href="https://zenodo.org/records/11150435"><img alt="DOI" src="https://zenodo.org/badge/DOI/10.5281/zenodo.11150435.svg" /></a> <a class="reference external" href="https://junjieyu-uom.github.io/obsaq/"><img alt="Docs" src="https://img.shields.io/badge/docs-obsAQ-brightgreen.svg" /></a> <a class="reference external" href="https://github.com/envdes/obsaq/"><img alt="GitHub" src="https://img.shields.io/badge/GitHub-obsAQ-brightgreen.svg" /></a> <a class="reference external" href="https://github.com/envdes/obsaq/blob/main/LICENSE"><img alt="license" src="https://img.shields.io/badge/License-MIT-blue.svg" /></a></p>
+<p>obsAQ: A Python package for obtaining observational air quality data</p>
+<p>Contributors: <a class="reference external" href="https://github.com/Airwhf/">Haofan Wang</a>, <a class="reference external" href="https://github.com/onebravekid">Zhiyi Song</a>, <a class="reference external" href="https://research.manchester.ac.uk/en/persons/david.topping">David Topping</a>, <a class="reference external" href="https://zhonghua-zheng.github.io/">Zhonghua Zheng</a> (Email: <a class="reference external" href="mailto:zhonghua&#46;zheng&#37;&#52;&#48;manchester&#46;ac&#46;uk">zhonghua<span>&#46;</span>zheng<span>&#64;</span>manchester<span>&#46;</span>ac<span>&#46;</span>uk</a>)</p>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="overview.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="overview.html#installation">Installation</a></li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="notebook/download_aurn.html">Obtain the data from AURN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_aurn.html#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_aurn.html#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_aurn.html#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_aurn.html#Choose-the-stations-by-range">Choose the stations by range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_aurn.html#Start-to-download-the-selected-station-data">Start to download the selected station data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_aurn.html#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_aurn.html#Download-data-by-site_id">Download data by site_id</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/download_rdata.html">Obtain the data from Rdata</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_rdata.html#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_rdata.html#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_rdata.html#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_rdata.html#Choose-the-stations-by-range">Choose the stations by range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/download_rdata.html#Start-to-download-the-selected-station-data">Start to download the selected station data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_rdata.html#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/download_rdata.html#Download-data-by-site_id">Download data by site_id</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/read_aurn.html">Read the data from AURN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebook/read_aurn.html#Read-the-site-data-by-a-bounds-of-longitude-and-latitude">Read the site data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_aurn.html#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_aurn.html#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_aurn.html#Choose-the-stations-by-range">Choose the stations by range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebook/read_aurn.html#Choose-a-site-by-site_id-and-read-it-directly">Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/read_aurn.html#Read-data-by-a-point-of-longitude-and-latitude">Read data by a point of longitude and latitude</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="notebook/read_rdata.html">Read the data from RData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="notebook/read_rdata.html#Read-the-site-data-by-a-bounds-of-longitude-and-latitude">Read the site data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_rdata.html#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_rdata.html#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="notebook/read_rdata.html#Choose-the-stations-by-range">Choose the stations by range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="notebook/read_rdata.html#Choose-a-site-by-site_id-and-read-it-directly">Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="notebook/read_rdata.html#Read-data-by-a-point-of-longitude-and-latitude">Read data by a point of longitude and latitude</a></li>
+</ul>
+</li>
+</ul>
+</div>
+<div class="toctree-wrapper compound">
+<p class="caption" role="heading"><span class="caption-text">Maps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="map.html">Check out the avaialble stations</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="map.html#the-stations-of-aurn-dataset">The stations of AURN dataset</a></li>
+<li class="toctree-l2"><a class="reference internal" href="map.html#the-stations-from-rdata">The stations from Rdata</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</section>
+<section id="indices-and-tables">
+<h1>Indices and tables<a class="headerlink" href="#indices-and-tables" title="Permalink to this heading"></a></h1>
+<ul class="simple">
+<li><p><a class="reference internal" href="genindex.html"><span class="std std-ref">Index</span></a></p></li>
+<li><p><a class="reference internal" href="py-modindex.html"><span class="std std-ref">Module Index</span></a></p></li>
+<li><p><a class="reference internal" href="search.html"><span class="std std-ref">Search Page</span></a></p></li>
+</ul>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="overview.html" class="btn btn-neutral float-right" title="About" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Haofan Wang.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
