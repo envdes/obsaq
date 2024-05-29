@@ -22,7 +22,7 @@
             attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         }).addTo(map);
 
-        Papa.parse('https://raw.githubusercontent.com/envdes/obsaq-content/main/metadata/site_table_rdata_unique.csv', {
+        Papa.parse('https://raw.githubusercontent.com/envdes/obsaq/main/metadata/site_table_rdata_unique.csv', {
             download: true,
             header: true,
             complete: function(results) {
