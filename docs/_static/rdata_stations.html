@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css"/>
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/PapaParse/5.3.0/papaparse.min.js"></script>
+    <style>
+        #map {
+            height: 800px;
+        }
+    </style>
+</head>
+<body>
+    <div id="map"></div>
+    <script>
+        var map = L.map('map').setView([53.466667, -2.233333], 6);
+
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: 'Map data &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+
+        Papa.parse('https://raw.githubusercontent.com/envdes/obsaq-content/main/metadata/site_table_rdata_unique.csv', {
+            download: true,
+            header: true,
+            complete: function(results) {
+                var data = results.data;
+                data.forEach(item => {
+                    var lat = parseFloat(item.latitude);
+                    var lon = parseFloat(item.longitude);
+                    var name = item.site_name;
+                    var ind = item.site_id;
+                    if (!isNaN(lat) && !isNaN(lon)) {
+                        var popupContent = '<b>Station Name:</b> ' + name + '<br><b>Site ID:</b> ' + ind + '<br><b>Latitude:</b> ' + lat + '<br><b>Longitude:</b> ' + lon;
+                        L.marker([lat, lon]).addTo(map).bindPopup(popupContent);
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
