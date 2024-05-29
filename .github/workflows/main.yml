@@ -29,9 +29,8 @@ jobs:
         run: |
           cd docs
           make html
-          cp _static/isd_map.html _build/html/isd_map.html
-          cp _static/UK-hist-station-map.html _build/html/UK-hist-station-map.html
-          cp _static/hadisd_map.html _build/html/hadisd_map.html
+          cp _static/aurn_stations.html _build/html/aurn_stations.html
+          cp _static/rdata_stations.html _build/html/rdata_stations.html
       # sphinx-apidoc -o . ../scr
       # https://github.com/marketplace/actions/github-pages
       #- if: success()
