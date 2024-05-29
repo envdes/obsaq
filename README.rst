@@ -40,7 +40,7 @@ How to use it?
 --------------
 Python
 
-Please check the `Tutorial <https://github.com/Airwhf/>`_ for information.
+Please check the `tutorial <https://envdes.github.io/obsaq/>`_ for more information.
 
 How to ask for help
 -------------------
