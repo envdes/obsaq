@@ -14,7 +14,7 @@ ObsAQ: A Python package for accessing observational air quality data
 .. |license| image:: https://img.shields.io/badge/License-MIT-blue.svg
    :target: https://github.com/envdes/obsaq/blob/main/LICENSE
 
-Contributors: `Haofan Wang  <https://github.com/Airwhf/>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (zhonghua.zheng@manchester.ac.uk)
+Contributors: `Haofan Wang <https://github.com/Airwhf/>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (zhonghua.zheng@manchester.ac.uk)
 
 Installation
 ------------
@@ -40,9 +40,7 @@ How to use it?
 --------------
 Python
 
-1. Users can read the `download_aurn.ipynb<docs/notebook/download_aurn.ipynb>`_ to learn how to download observations from AURN, and read the `download_rdata.ipynb<docs/notebook/download_rdata.ipynb>`_ to learn how to download observations from Rdata.
-
-2. Users can read the `read_aurn.ipynb<docs/notebook/read_aurn.ipynb>`_ to learn how to read observations from AURN directly, and read the `read_rdata.ipynb<docs/notebook/read_rdata.ipynb>`_ to learn how to read observations from Rdata directly.
+Please check the `Tutorial <https://github.com/Airwhf/>`_ for information.
 
 How to ask for help
 -------------------
