@@ -1,4 +1,4 @@
-ObsAQ: A Python package for obtaining observational air quality data
+obsAQ: A Python package for accessing observational air quality data
 --------------------------------------------------------------------
 |docs| |GitHub| |license|
 
