@@ -140,7 +140,8 @@ class meta:
         
         for id in ids:
             if port == 'aurn':
-                url = f'https://uk-air.defra.gov.uk/data_files/site_data/{id}_{year}.csv'
+                url_prefix = 'https://uk-air.defra.gov.uk/datastore/data_files/site_data'
+                url = f'{url_prefix}/{id}_{year}.csv'
                 # Download this file.
                 r = requests.get(url, headers=headers)
                 if r.status_code == 200:
