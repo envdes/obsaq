@@ -20,7 +20,7 @@ Installation
 ------------
 Step 1: create an environment::
 
-    $ conda create -n obsaq python=3.11
+    $ conda create -n obsaq python=3.12
 
     $ conda activate obsaq
 
