@@ -24,37 +24,29 @@ ObsAQ: A Python package for accessing observational air quality data
 
 Contributors: `Haofan Wang <https://github.com/Airwhf/>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `Congbo Song <https://github.com/songnku>`_, `Zongbo Shi <https://www.birmingham.ac.uk/staff/profiles/gees/shi-zongbo>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (zhonghua.zheng@manchester.ac.uk)
 
-
 .. toctree::
    :maxdepth: 2
    :caption: Overview
 
-   overview.rst
+   overview
 
 .. toctree::
    :maxdepth: 2
    :caption: Tutorial
 
-  notebook/download_aurn
-  notebook/download_rdata
-  notebook/merge_data
-  notebook/read_aurn
+   notebook/download_aurn
+   notebook/download_rdata
+   notebook/merge_data
+   notebook/read_aurn
 
 .. toctree::
    :maxdepth: 2
    :caption: Maps
 
-   map.rst
-
-.. .. toctree::
-..    :maxdepth: 2
-..    :caption: API Reference
-
-..    module.rst
+   map
 
 Indices and tables
 ==================
 
 * :ref:`genindex`
-* :ref:`modindex`
 * :ref:`search`
