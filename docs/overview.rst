@@ -12,7 +12,7 @@ Step 1: create an environment via conda
 
         .. code-block:: shell
 
-                conda create -n obsaq python=3.8
+                conda create -n obsaq python=3.12
                 conda activate obsaq
                 conda install numpy pandas pyreadr
 
