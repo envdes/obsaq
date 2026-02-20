@@ -26,24 +26,22 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 1,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "file: None\n",
-      "path: _NamespacePath(['/Users/user/Documents/GitHub/obsaq'])\n",
-      "spec: ModuleSpec(name='obsaq', loader=<_frozen_importlib_external._NamespaceLoader object at 0x1080ce670>, submodule_search_locations=_NamespacePath(['/Users/user/Documents/GitHub/obsaq']))\n",
-      "cwd: /Users/user/Documents/GitHub\n"
+      "file: /opt/anaconda3/envs/obsaq39v2/lib/python3.9/site-packages/obsaq/__init__.py\n",
+      "path: ['/opt/anaconda3/envs/obsaq39v2/lib/python3.9/site-packages/obsaq']\n",
+      "spec: ModuleSpec(name='obsaq', loader=<_frozen_importlib_external.SourceFileLoader object at 0x1120ee3a0>, origin='/opt/anaconda3/envs/obsaq39v2/lib/python3.9/site-packages/obsaq/__init__.py', submodule_search_locations=['/opt/anaconda3/envs/obsaq39v2/lib/python3.9/site-packages/obsaq'])\n",
+      "cwd: /Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/test0220v2/obsaq/docs/notebook\n"
      ]
     }
    ],
    "source": [
     "import obsaq\n",
-    "from obsaq import config\n",
-    "from obsaq.obsaq import read_sites\n",
     "print(\"file:\", getattr(obsaq, \"__file__\", None))\n",
     "print(\"path:\", getattr(obsaq, \"__path__\", None))\n",
     "print(\"spec:\", obsaq.__spec__)\n",
@@ -67,11 +65,11 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 2,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [],
    "source": [
-    "meta = obsaq.obsaq.meta()\n",
+    "meta = obsaq.meta()\n",
     "site_table = meta.get_metadata('aurn')"
    ]
   },
@@ -84,7 +82,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 3,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -169,710 +167,7 @@
          "type": "string"
         }
        ],
-       "ref": "52a1c4e3-2832-4122-afe9-b1155caf939c",
-       "rows": [
-        [
-         "0",
-         "ABD",
-         "Aberdeen",
-         "Urban Background",
-         "57.15736",
-         "-2.094278",
-         "O3",
-         "Ozone",
-         "2003-08-01",
-         "2021-09-20",
-         "2021-09-20",
-         "North East Scotland",
-         null,
-         "Aberdeen City"
-        ],
-        [
-         "1",
-         "ABD",
-         "Aberdeen",
-         "Urban Background",
-         "57.15736",
-         "-2.094278",
-         "NO",
-         "Nitric oxide",
-         "1999-09-18",
-         "2021-09-20",
-         "2021-09-20",
-         "North East Scotland",
-         null,
-         "Aberdeen City"
-        ],
-        [
-         "2",
-         "ABD",
-         "Aberdeen",
-         "Urban Background",
-         "57.15736",
-         "-2.094278",
-         "NO2",
-         "Nitrogen dioxide",
-         "1999-09-18",
-         "2021-09-20",
-         "2021-09-20",
-         "North East Scotland",
-         null,
-         "Aberdeen City"
-        ],
-        [
-         "3",
-         "ABD",
-         "Aberdeen",
-         "Urban Background",
-         "57.15736",
-         "-2.094278",
-         "NOXasNO2",
-         "Nitrogen oxides as nitrogen dioxide",
-         "1999-09-18",
-         "2021-09-20",
-         "2021-09-20",
-         "North East Scotland",
-         null,
-         "Aberdeen City"
-        ],
-        [
-         "4",
-         "ABD",
-         "Aberdeen",
-         "Urban Background",
-         "57.15736",
-         "-2.094278",
-         "SO2",
-         "Sulphur dioxide",
-         "2001-01-01",
-         "2007-09-30",
-         "2007-09-30",
-         "North East Scotland",
-         null,
-         "Aberdeen City"
-        ]
-       ],
-       "shape": {
-        "columns": 13,
-        "rows": 5
-       }
-      },
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>site_id</th>\n",
-       "      <th>site_name</th>\n",
-       "      <th>location_type</th>\n",
-       "      <th>latitude</th>\n",
-       "      <th>longitude</th>\n",
-       "      <th>parameter</th>\n",
-       "      <th>Parameter_name</th>\n",
-       "      <th>start_date</th>\n",
-       "      <th>end_date</th>\n",
-       "      <th>ratified_to</th>\n",
-       "      <th>zone</th>\n",
-       "      <th>agglomeration</th>\n",
-       "      <th>local_authority</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>0</th>\n",
-       "      <td>ABD</td>\n",
-       "      <td>Aberdeen</td>\n",
-       "      <td>Urban Background</td>\n",
-       "      <td>57.15736</td>\n",
-       "      <td>-2.094278</td>\n",
-       "      <td>O3</td>\n",
-       "      <td>Ozone</td>\n",
-       "      <td>2003-08-01</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>North East Scotland</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Aberdeen City</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>1</th>\n",
-       "      <td>ABD</td>\n",
-       "      <td>Aberdeen</td>\n",
-       "      <td>Urban Background</td>\n",
-       "      <td>57.15736</td>\n",
-       "      <td>-2.094278</td>\n",
-       "      <td>NO</td>\n",
-       "      <td>Nitric oxide</td>\n",
-       "      <td>1999-09-18</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>North East Scotland</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Aberdeen City</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>2</th>\n",
-       "      <td>ABD</td>\n",
-       "      <td>Aberdeen</td>\n",
-       "      <td>Urban Background</td>\n",
-       "      <td>57.15736</td>\n",
-       "      <td>-2.094278</td>\n",
-       "      <td>NO2</td>\n",
-       "      <td>Nitrogen dioxide</td>\n",
-       "      <td>1999-09-18</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>North East Scotland</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Aberdeen City</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>3</th>\n",
-       "      <td>ABD</td>\n",
-       "      <td>Aberdeen</td>\n",
-       "      <td>Urban Background</td>\n",
-       "      <td>57.15736</td>\n",
-       "      <td>-2.094278</td>\n",
-       "      <td>NOXasNO2</td>\n",
-       "      <td>Nitrogen oxides as nitrogen dioxide</td>\n",
-       "      <td>1999-09-18</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>2021-09-20</td>\n",
-       "      <td>North East Scotland</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Aberdeen City</td>\n",
-       "    </tr>\n",
-       "    <tr>\n",
-       "      <th>4</th>\n",
-       "      <td>ABD</td>\n",
-       "      <td>Aberdeen</td>\n",
-       "      <td>Urban Background</td>\n",
-       "      <td>57.15736</td>\n",
-       "      <td>-2.094278</td>\n",
-       "      <td>SO2</td>\n",
-       "      <td>Sulphur dioxide</td>\n",
-       "      <td>2001-01-01</td>\n",
-       "      <td>2007-09-30</td>\n",
-       "      <td>2007-09-30</td>\n",
-       "      <td>North East Scotland</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Aberdeen City</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "  site_id site_name     location_type  latitude  longitude parameter  \\\n",
-       "0     ABD  Aberdeen  Urban Background  57.15736  -2.094278        O3   \n",
-       "1     ABD  Aberdeen  Urban Background  57.15736  -2.094278        NO   \n",
-       "2     ABD  Aberdeen  Urban Background  57.15736  -2.094278       NO2   \n",
-       "3     ABD  Aberdeen  Urban Background  57.15736  -2.094278  NOXasNO2   \n",
-       "4     ABD  Aberdeen  Urban Background  57.15736  -2.094278       SO2   \n",
-       "\n",
-       "                        Parameter_name  start_date    end_date ratified_to  \\\n",
-       "0                                Ozone  2003-08-01  2021-09-20  2021-09-20   \n",
-       "1                         Nitric oxide  1999-09-18  2021-09-20  2021-09-20   \n",
-       "2                     Nitrogen dioxide  1999-09-18  2021-09-20  2021-09-20   \n",
-       "3  Nitrogen oxides as nitrogen dioxide  1999-09-18  2021-09-20  2021-09-20   \n",
-       "4                      Sulphur dioxide  2001-01-01  2007-09-30  2007-09-30   \n",
-       "\n",
-       "                  zone agglomeration local_authority  \n",
-       "0  North East Scotland           NaN   Aberdeen City  \n",
-       "1  North East Scotland           NaN   Aberdeen City  \n",
-       "2  North East Scotland           NaN   Aberdeen City  \n",
-       "3  North East Scotland           NaN   Aberdeen City  \n",
-       "4  North East Scotland           NaN   Aberdeen City  "
-      ]
-     },
-     "execution_count": 3,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "final_sites = meta.get_site(bounds=bounds)\n",
-    "final_sites.head(5)"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "#### Start to download the selected station data\n",
-    "- `pollutant`: See names of pollutants. Define one pollutant, diverse pollutants or all pollutants to download the data for them.\n",
-    "               Pollutants can be defined as \"PM2.5\",\"PM10\",\"O3\",\"NO\",\"NO2\",\"NOXasNO2\" or \"SO2\".\n",
-    "- `start`: the start date of data to be downloaded.\n",
-    "- `end`: the end date of data to be downloaded.\n",
-    "- `year`: the year of data to be downloaded. Defaults to 2010.\n",
-    "- `output_dir`: the directory to save the downloaded data. \n",
-    "- `download_mode`: \"Stream\" for saving final and intermediate files while \"memory\" for only the final file.\n",
-    "- `save_per_site`: whether save files for every station individually.\n",
-    "- `save_merged`: whether save the merged file for all selected data.\n",
-    "- `add_site_id`: whether include site id in the downloaded file.\n",
-    "\n",
-    "Warnings are normal for merging data with different format. Ingoring them can be fine. "
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 4,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "     site_id        site_name     location_type   latitude  longitude  \\\n",
-      "0        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
-      "1        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
-      "2        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
-      "3        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
-      "6        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
-      "...      ...              ...               ...        ...        ...   \n",
-      "3057    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
-      "3058    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
-      "3059    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
-      "3060    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
-      "3061    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
-      "\n",
-      "     parameter                             Parameter_name  start_date  \\\n",
-      "0           O3                                      Ozone  2003-08-01   \n",
-      "1           NO                               Nitric oxide  1999-09-18   \n",
-      "2          NO2                           Nitrogen dioxide  1999-09-18   \n",
-      "3     NOXasNO2        Nitrogen oxides as nitrogen dioxide  1999-09-18   \n",
-      "6         PM10  PM10 particulate matter (Hourly measured)  1999-09-18   \n",
-      "...        ...                                        ...         ...   \n",
-      "3057     NV2.5       Non-volatile PM2.5 (Hourly measured)  2011-08-31   \n",
-      "3058      V2.5           Volatile PM2.5 (Hourly measured)  2011-08-31   \n",
-      "3059        wd                    Modelled Wind Direction  2010-08-01   \n",
-      "3060        ws                        Modelled Wind Speed  2010-08-01   \n",
-      "3061      temp                       Modelled Temperature  2010-08-01   \n",
-      "\n",
-      "        end_date ratified_to                    zone agglomeration  \\\n",
-      "0     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
-      "1     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
-      "2     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
-      "3     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
-      "6     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
-      "...          ...         ...                     ...           ...   \n",
-      "3057  2018-10-10  2018-10-10  Yorkshire & Humberside           NaN   \n",
-      "3058  2018-10-10  2018-10-10  Yorkshire & Humberside           NaN   \n",
-      "3059     ongoing       Never  Yorkshire & Humberside           NaN   \n",
-      "3060     ongoing       Never  Yorkshire & Humberside           NaN   \n",
-      "3061     ongoing       Never  Yorkshire & Humberside           NaN   \n",
-      "\n",
-      "     local_authority  \n",
-      "0      Aberdeen City  \n",
-      "1      Aberdeen City  \n",
-      "2      Aberdeen City  \n",
-      "3      Aberdeen City  \n",
-      "6      Aberdeen City  \n",
-      "...              ...  \n",
-      "3057            York  \n",
-      "3058            York  \n",
-      "3059            York  \n",
-      "3060            York  \n",
-      "3061            York  \n",
-      "\n",
-      "[1625 rows x 13 columns]\n",
-      "Saved per-site file: data/test_pm25/ABD_PM2.5_20171201_20181130.csv\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (33,34,54,55,72,73,87,88,93,94,96,97,105,106,108,109) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Saved per-site file: data/test_pm25/ACTH_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/AGRN_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BEL2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BEX_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BIRR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BLC2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BMLD_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BORN_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BPLE_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/BRS8_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CA1_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CARD_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CARL_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CHAT_PM2.5_20171201_20181130.csv\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (3,4,81,82,123,124,126,127) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (18,19,102,103,105,106,117,118,120,121) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Saved per-site file: data/test_pm25/CHBO_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CHBR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CHLG_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CHP_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CHS7_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/CLL2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/COAL_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/DERR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/EAGL_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/EB_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/ECCL_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/ED3_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/GHSR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/GKA8_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/GLKP_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/GRAN_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/HOPE_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/HORS_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/HRL_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/HUL2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/INV2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/KC1_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LEAM_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LEAR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LECU_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LED6_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LEED_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LN_PM2.5_20171201_20181130.csv\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (24,25,48,49,60,61) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (24,25) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Saved per-site file: data/test_pm25/LON6_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/LVP_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/MAN3_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/MID_PM2.5_20171201_20181130.csv\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (63,64) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Saved per-site file: data/test_pm25/MY1_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/NEWC_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/NO12_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/NOTT_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/NPT3_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/NTN4_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/OX8_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/PEMB_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/PLYM_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/PMTH_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/PRES_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/PT4_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/REA1_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/ROCH_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SASH_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SDY_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SEND_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SHBR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SHDG_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SOTR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SOUT_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/STOK_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/STOR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SUN2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/SWA1_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/TED2_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/TRAN_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/WAR_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/WIG5_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/WREX_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/WTHG_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/YK10_PM2.5_20171201_20181130.csv\n",
-      "Saved per-site file: data/test_pm25/YK11_PM2.5_20171201_20181130.csv\n",
-      "Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Method 1: Download the final merged file and also download intermediate files for every station.\n",
-    "merged_df = meta.download_sites(\n",
-    "    port=\"aurn\",\n",
-    "    pollutant=\"PM2.5\",\n",
-    "    start=\"2017-12-01\",\n",
-    "    end=\"2018-11-30\",\n",
-    "    output_dir=\"data/test_pm25\",\n",
-    "    download_mode=\"stream\",     \n",
-    "    save_per_site=True,\n",
-    "    save_merged=True,\n",
-    "    add_site_id=True\n",
-    ")"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 5,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "     site_id                  site_name     location_type   latitude  \\\n",
-      "9        ABD                   Aberdeen  Urban Background  57.157360   \n",
-      "56      ACTH           Auchencorth Moss  Rural Background  55.792160   \n",
-      "129     BPLE             Barnstaple A39     Urban Traffic  51.074793   \n",
-      "157     BEL2             Belfast Centre  Urban Background  54.599650   \n",
-      "217     BIRR  Birmingham A4540 Roadside     Urban Traffic  52.476145   \n",
-      "...      ...                        ...               ...        ...   \n",
-      "2983    TRAN            Wirral Tranmere  Urban Background  53.372870   \n",
-      "3006    WTHG      Worthing A27 Roadside     Urban Traffic  50.832947   \n",
-      "3022    WREX                    Wrexham     Urban Traffic  53.042282   \n",
-      "3044    YK10               York Bootham  Urban Background  53.967513   \n",
-      "3056    YK11            York Fishergate     Urban Traffic  53.951889   \n",
-      "\n",
-      "      longitude parameter                              Parameter_name  \\\n",
-      "9     -2.094278     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "56    -3.242900     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "129   -4.041924     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "157   -5.928833     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "217   -1.874978     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "...         ...       ...                                         ...   \n",
-      "2983  -3.022722     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "3006  -0.379916     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "3022  -3.002829     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "3044  -1.086514     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "3056  -1.075861     PM2.5  PM2.5 particulate matter (Hourly measured)   \n",
-      "\n",
-      "      start_date    end_date ratified_to                     zone  \\\n",
-      "9     2009-02-20  2021-09-20  2021-09-20      North East Scotland   \n",
-      "56    2006-01-01     ongoing  2025-09-30         Central Scotland   \n",
-      "129   2013-11-14     ongoing  2025-09-30               South West   \n",
-      "157   2008-10-01     ongoing  2025-09-30         Northern Ireland   \n",
-      "217   2016-09-09     ongoing  2025-09-30            West Midlands   \n",
-      "...          ...         ...         ...                      ...   \n",
-      "2983  2009-01-28     ongoing  2025-09-30  North West & Merseyside   \n",
-      "3006  2018-03-01     ongoing  2025-09-30               South East   \n",
-      "3022  2018-10-01     ongoing  2025-09-30              North Wales   \n",
-      "3044  2008-12-03     ongoing  2025-09-30   Yorkshire & Humberside   \n",
-      "3056  2011-08-31     ongoing  2025-09-30   Yorkshire & Humberside   \n",
-      "\n",
-      "                        agglomeration local_authority  \n",
-      "9                                 NaN   Aberdeen City  \n",
-      "56                                NaN      Midlothian  \n",
-      "129                               NaN     North Devon  \n",
-      "157   Belfast Metropolitan Urban Area         Belfast  \n",
-      "217          West Midlands Urban Area      Birmingham  \n",
-      "...                               ...             ...  \n",
-      "2983            Birkenhead Urban Area          Wirral  \n",
-      "3006  Brighton/Worthing/Littlehampton        Worthing  \n",
-      "3022                              NaN         Wrexham  \n",
-      "3044                              NaN            York  \n",
-      "3056                              NaN            York  \n",
-      "\n",
-      "[80 rows x 13 columns]\n"
-     ]
-    },
-    {
-     "name": "stderr",
-     "output_type": "stream",
-     "text": [
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (33,34,54,55,72,73,87,88,93,94,96,97,105,106,108,109) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (3,4,81,82,123,124,126,127) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (18,19,102,103,105,106,117,118,120,121) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (24,25,48,49,60,61) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (24,25) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n",
-      "/Users/user/Documents/GitHub/obsaq/obsaq/obsaq.py:426: DtypeWarning: Columns (63,64) have mixed types. Specify dtype option on import or set low_memory=False.\n",
-      "  df = pd.read_csv(StringIO(r.text), skiprows=4)\n"
-     ]
-    },
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv\n"
-     ]
-    }
-   ],
-   "source": [
-    "# Method 2: Only download the final merged file.\n",
-    "merged_df = meta.download_sites(\n",
-    "    port=\"aurn\",\n",
-    "    pollutant=\"PM2.5\",\n",
-    "    start=\"2017-12-01\",\n",
-    "    end=\"2018-11-30\",\n",
-    "    output_dir=\"data/test_pm25_final\",\n",
-    "    download_mode=\"memory\",   \n",
-    "    save_per_site=False,    \n",
-    "    save_merged=True,\n",
-    "    add_site_id=True\n",
-    ")\n"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "## Download data by a point of longitude and latitude\n",
-    "\n",
-    "Users can give a point of longitude and latitude to download the station data."
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Load the obsaq package and Define the point"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 6,
-   "metadata": {},
-   "outputs": [],
-   "source": [
-    "import obsaq\n",
-    "\n",
-    "lon = 0.0\n",
-    "lat = 55.0\n",
-    "point = [lon, lat]"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Get the station metadata\n",
-    "\n",
-    "NOTE: This is the all station information and the next step will choose the stations by point."
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 7,
-   "metadata": {},
-   "outputs": [
-    {
-     "data": {
-      "application/vnd.microsoft.datawrangler.viewer.v0+json": {
-       "columns": [
-        {
-         "name": "index",
-         "rawType": "int64",
-         "type": "integer"
-        },
-        {
-         "name": "site_id",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "site_name",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "location_type",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "latitude",
-         "rawType": "float64",
-         "type": "float"
-        },
-        {
-         "name": "longitude",
-         "rawType": "float64",
-         "type": "float"
-        },
-        {
-         "name": "parameter",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "Parameter_name",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "start_date",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "end_date",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "ratified_to",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "zone",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "agglomeration",
-         "rawType": "object",
-         "type": "unknown"
-        },
-        {
-         "name": "local_authority",
-         "rawType": "object",
-         "type": "string"
-        }
-       ],
-       "ref": "43c05076-a9fe-4c21-8cb5-ac98628fb793",
+       "ref": "95475cae-63e1-4bf9-a5ba-0e35d1e02484",
        "rows": [
         [
          "0",
@@ -1108,17 +403,30 @@
     }
    ],
    "source": [
-    "meta = obsaq.obsaq.meta()\n",
-    "site_table = meta.get_metadata('aurn')\n",
-    "\n",
-    "site_table.head(5)"
+    "final_sites = meta.get_site(bounds=bounds)\n",
+    "final_sites.head(5)"
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Choose the stations by point"
+    "#### Start to download the selected station data\n",
+    "- `pollutant`: See names of pollutants. Define one pollutant, diverse pollutants or all pollutants to download the data for them.\n",
+    "               Pollutants can be defined as \"PM2.5\",\"PM10\",\"O3\",\"NO\",\"NO2\",\"NOXasNO2\" or \"SO2\".\n",
+    "- `start`: the start date of data to be downloaded.\n",
+    "- `end`: the end date of data to be downloaded.\n",
+    "- `year`: the year of data to be downloaded. Defaults to 2010.\n",
+    "- `output_dir`: the directory to save the downloaded data. \n",
+    "- `download_mode`: \"Stream\" for saving final and intermediate files while \"memory\" for only the final file.\n",
+    "- `save_per_site`: whether save files for every station individually.\n",
+    "- `save_merged`: whether save the merged file for all selected data.\n",
+    "- `add_site_id`: whether include site id in the downloaded file.\n",
+    "\n",
+    "Download data for every station. \n",
+    "Decide whether to download the final merged data for all targeted stations by choosing \"save_merged=True/False\".\n",
+    "\n",
+    "Warnings are normal for merging data with different format. Ingoring them can be fine. "
    ]
   },
   {
@@ -1130,223 +438,153 @@
      "name": "stdout",
      "output_type": "stream",
      "text": [
-      "Site is selected by point: [0.0, 55.0]\n"
-     ]
-    },
-    {
-     "data": {
-      "application/vnd.microsoft.datawrangler.viewer.v0+json": {
-       "columns": [
-        {
-         "name": "index",
-         "rawType": "int64",
-         "type": "integer"
-        },
-        {
-         "name": "site_id",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "site_name",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "location_type",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "latitude",
-         "rawType": "float64",
-         "type": "float"
-        },
-        {
-         "name": "longitude",
-         "rawType": "float64",
-         "type": "float"
-        },
-        {
-         "name": "parameter",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "Parameter_name",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "start_date",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "end_date",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "ratified_to",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "zone",
-         "rawType": "object",
-         "type": "string"
-        },
-        {
-         "name": "agglomeration",
-         "rawType": "object",
-         "type": "unknown"
-        },
-        {
-         "name": "local_authority",
-         "rawType": "object",
-         "type": "string"
-        }
-       ],
-       "ref": "09199e39-fe7d-4b32-9240-0b5f9aaf2a75",
-       "rows": [
-        [
-         "1267",
-         "HM",
-         "High Muffles",
-         "Rural Background",
-         "54.334497",
-         "-0.80882",
-         "O3",
-         "Ozone",
-         "1987-07-16",
-         "ongoing",
-         "2025-09-30",
-         "Yorkshire & Humberside",
-         null,
-         "Ryedale"
-        ]
-       ],
-       "shape": {
-        "columns": 13,
-        "rows": 1
-       }
-      },
-      "text/html": [
-       "<div>\n",
-       "<style scoped>\n",
-       "    .dataframe tbody tr th:only-of-type {\n",
-       "        vertical-align: middle;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe tbody tr th {\n",
-       "        vertical-align: top;\n",
-       "    }\n",
-       "\n",
-       "    .dataframe thead th {\n",
-       "        text-align: right;\n",
-       "    }\n",
-       "</style>\n",
-       "<table border=\"1\" class=\"dataframe\">\n",
-       "  <thead>\n",
-       "    <tr style=\"text-align: right;\">\n",
-       "      <th></th>\n",
-       "      <th>site_id</th>\n",
-       "      <th>site_name</th>\n",
-       "      <th>location_type</th>\n",
-       "      <th>latitude</th>\n",
-       "      <th>longitude</th>\n",
-       "      <th>parameter</th>\n",
-       "      <th>Parameter_name</th>\n",
-       "      <th>start_date</th>\n",
-       "      <th>end_date</th>\n",
-       "      <th>ratified_to</th>\n",
-       "      <th>zone</th>\n",
-       "      <th>agglomeration</th>\n",
-       "      <th>local_authority</th>\n",
-       "    </tr>\n",
-       "  </thead>\n",
-       "  <tbody>\n",
-       "    <tr>\n",
-       "      <th>1267</th>\n",
-       "      <td>HM</td>\n",
-       "      <td>High Muffles</td>\n",
-       "      <td>Rural Background</td>\n",
-       "      <td>54.334497</td>\n",
-       "      <td>-0.80882</td>\n",
-       "      <td>O3</td>\n",
-       "      <td>Ozone</td>\n",
-       "      <td>1987-07-16</td>\n",
-       "      <td>ongoing</td>\n",
-       "      <td>2025-09-30</td>\n",
-       "      <td>Yorkshire &amp; Humberside</td>\n",
-       "      <td>NaN</td>\n",
-       "      <td>Ryedale</td>\n",
-       "    </tr>\n",
-       "  </tbody>\n",
-       "</table>\n",
-       "</div>"
-      ],
-      "text/plain": [
-       "     site_id     site_name     location_type   latitude  longitude parameter  \\\n",
-       "1267      HM  High Muffles  Rural Background  54.334497   -0.80882        O3   \n",
-       "\n",
-       "     Parameter_name  start_date end_date ratified_to                    zone  \\\n",
-       "1267          Ozone  1987-07-16  ongoing  2025-09-30  Yorkshire & Humberside   \n",
-       "\n",
-       "     agglomeration local_authority  \n",
-       "1267           NaN         Ryedale  "
-      ]
-     },
-     "execution_count": 8,
-     "metadata": {},
-     "output_type": "execute_result"
-    }
-   ],
-   "source": [
-    "final_sites = meta.get_site(point=point)\n",
-    "final_sites"
-   ]
-  },
-  {
-   "cell_type": "markdown",
-   "metadata": {},
-   "source": [
-    "### Start to download the selected station data\n",
-    "- Use \"start\" and \"end\" to define a period of time.\n",
-    "- Other parameters are the same as \"Download data by a bounds of longitude and latitude\" part"
-   ]
-  },
-  {
-   "cell_type": "code",
-   "execution_count": 9,
-   "metadata": {},
-   "outputs": [
-    {
-     "name": "stdout",
-     "output_type": "stream",
-     "text": [
-      "     site_id     site_name     location_type   latitude  longitude parameter  \\\n",
-      "1267      HM  High Muffles  Rural Background  54.334497   -0.80882        O3   \n",
+      "     site_id        site_name     location_type   latitude  longitude  \\\n",
+      "0        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
+      "1        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
+      "2        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
+      "3        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
+      "6        ABD         Aberdeen  Urban Background  57.157360  -2.094278   \n",
+      "...      ...              ...               ...        ...        ...   \n",
+      "3057    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
+      "3058    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
+      "3059    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
+      "3060    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
+      "3061    YK11  York Fishergate     Urban Traffic  53.951889  -1.075861   \n",
       "\n",
-      "     Parameter_name  start_date end_date ratified_to                    zone  \\\n",
-      "1267          Ozone  1987-07-16  ongoing  2025-09-30  Yorkshire & Humberside   \n",
+      "     parameter                             Parameter_name  start_date  \\\n",
+      "0           O3                                      Ozone  2003-08-01   \n",
+      "1           NO                               Nitric oxide  1999-09-18   \n",
+      "2          NO2                           Nitrogen dioxide  1999-09-18   \n",
+      "3     NOXasNO2        Nitrogen oxides as nitrogen dioxide  1999-09-18   \n",
+      "6         PM10  PM10 particulate matter (Hourly measured)  1999-09-18   \n",
+      "...        ...                                        ...         ...   \n",
+      "3057     NV2.5       Non-volatile PM2.5 (Hourly measured)  2011-08-31   \n",
+      "3058      V2.5           Volatile PM2.5 (Hourly measured)  2011-08-31   \n",
+      "3059        wd                    Modelled Wind Direction  2010-08-01   \n",
+      "3060        ws                        Modelled Wind Speed  2010-08-01   \n",
+      "3061      temp                       Modelled Temperature  2010-08-01   \n",
       "\n",
-      "     agglomeration local_authority  \n",
-      "1267           NaN         Ryedale  \n"
+      "        end_date ratified_to                    zone agglomeration  \\\n",
+      "0     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
+      "1     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
+      "2     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
+      "3     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
+      "6     2021-09-20  2021-09-20     North East Scotland           NaN   \n",
+      "...          ...         ...                     ...           ...   \n",
+      "3057  2018-10-10  2018-10-10  Yorkshire & Humberside           NaN   \n",
+      "3058  2018-10-10  2018-10-10  Yorkshire & Humberside           NaN   \n",
+      "3059     ongoing       Never  Yorkshire & Humberside           NaN   \n",
+      "3060     ongoing       Never  Yorkshire & Humberside           NaN   \n",
+      "3061     ongoing       Never  Yorkshire & Humberside           NaN   \n",
+      "\n",
+      "     local_authority  \n",
+      "0      Aberdeen City  \n",
+      "1      Aberdeen City  \n",
+      "2      Aberdeen City  \n",
+      "3      Aberdeen City  \n",
+      "6      Aberdeen City  \n",
+      "...              ...  \n",
+      "3057            York  \n",
+      "3058            York  \n",
+      "3059            York  \n",
+      "3060            York  \n",
+      "3061            York  \n",
+      "\n",
+      "[1625 rows x 13 columns]\n",
+      "Saved per-site file: data/test_pm25/ABD_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/ACTH_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/AGRN_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BEL2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BEX_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BIRR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BLC2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BMLD_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BORN_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BPLE_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/BRS8_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CA1_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CARD_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CARL_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHAT_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHBO_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHBR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHLG_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHP_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CHS7_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/CLL2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/COAL_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/DERR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/EAGL_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/EB_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/ECCL_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/ED3_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/GHSR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/GKA8_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/GLKP_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/GRAN_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/HOPE_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/HORS_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/HRL_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/HUL2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/INV2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/KC1_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LEAM_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LEAR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LECU_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LED6_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LEED_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LN_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LON6_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/LVP_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/MAN3_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/MID_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/MY1_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/NEWC_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/NO12_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/NOTT_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/NPT3_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/NTN4_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/OX8_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/PEMB_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/PLYM_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/PMTH_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/PRES_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/PT4_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/REA1_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/ROCH_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SASH_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SDY_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SEND_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SHBR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SHDG_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SOTR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SOUT_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/STOK_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/STOR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SUN2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/SWA1_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/TED2_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/TRAN_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/WAR_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/WIG5_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/WREX_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/WTHG_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/YK10_PM2.5_20171201_20181130.csv\n",
+      "Saved per-site file: data/test_pm25/YK11_PM2.5_20171201_20181130.csv\n",
+      "Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv\n"
      ]
     }
    ],
    "source": [
-    "meta.download_sites(\n",
+    "merged_df = meta.download_sites(\n",
     "    port=\"aurn\",\n",
     "    pollutant=\"PM2.5\",\n",
     "    start=\"2017-12-01\",\n",
     "    end=\"2018-11-30\",\n",
-    "    output_dir=\"data/test_pm25_station\",\n",
+    "    output_dir=\"data/test_pm25\",\n",
     "    download_mode=\"stream\",     \n",
     "    save_per_site=True,\n",
-    "    save_merged=False,\n",
+    "    save_merged=True,\n",
     "    add_site_id=True\n",
     ")"
    ]
@@ -1355,14 +593,38 @@
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "## Download data by site_id"
+    "## Download data by a point of longitude and latitude\n",
+    "\n",
+    "Users can give a point of longitude and latitude to download the station data."
    ]
   },
   {
    "cell_type": "markdown",
    "metadata": {},
    "source": [
-    "### Load the obsaq package and check the site information"
+    "### Load the obsaq package and Define the point"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "import obsaq\n",
+    "\n",
+    "lon = 0.0\n",
+    "lat = 55.0\n",
+    "point = [lon, lat]"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Get the station metadata\n",
+    "\n",
+    "NOTE: This is the all station information and the next step will choose the stations by point."
    ]
   },
   {
@@ -1445,7 +707,7 @@
          "type": "string"
         }
        ],
-       "ref": "d0dd536f-862a-4e61-8397-7e7fb3aa1087",
+       "ref": "859724f5-17ae-4741-970c-20b3b72ecd50",
        "rows": [
         [
          "0",
@@ -1681,9 +943,582 @@
     }
    ],
    "source": [
+    "meta = obsaq.meta()\n",
+    "site_table = meta.get_metadata('aurn')\n",
+    "\n",
+    "site_table.head(5)"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Choose the stations by point"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Site is selected by point: [0.0, 55.0]\n"
+     ]
+    },
+    {
+     "data": {
+      "application/vnd.microsoft.datawrangler.viewer.v0+json": {
+       "columns": [
+        {
+         "name": "index",
+         "rawType": "int64",
+         "type": "integer"
+        },
+        {
+         "name": "site_id",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "site_name",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "location_type",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "latitude",
+         "rawType": "float64",
+         "type": "float"
+        },
+        {
+         "name": "longitude",
+         "rawType": "float64",
+         "type": "float"
+        },
+        {
+         "name": "parameter",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "Parameter_name",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "start_date",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "end_date",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "ratified_to",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "zone",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "agglomeration",
+         "rawType": "object",
+         "type": "unknown"
+        },
+        {
+         "name": "local_authority",
+         "rawType": "object",
+         "type": "string"
+        }
+       ],
+       "ref": "888e567c-d49c-4e88-97f9-c376d450a124",
+       "rows": [
+        [
+         "1267",
+         "HM",
+         "High Muffles",
+         "Rural Background",
+         "54.334497",
+         "-0.80882",
+         "O3",
+         "Ozone",
+         "1987-07-16",
+         "ongoing",
+         "2025-09-30",
+         "Yorkshire & Humberside",
+         null,
+         "Ryedale"
+        ]
+       ],
+       "shape": {
+        "columns": 13,
+        "rows": 1
+       }
+      },
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>site_id</th>\n",
+       "      <th>site_name</th>\n",
+       "      <th>location_type</th>\n",
+       "      <th>latitude</th>\n",
+       "      <th>longitude</th>\n",
+       "      <th>parameter</th>\n",
+       "      <th>Parameter_name</th>\n",
+       "      <th>start_date</th>\n",
+       "      <th>end_date</th>\n",
+       "      <th>ratified_to</th>\n",
+       "      <th>zone</th>\n",
+       "      <th>agglomeration</th>\n",
+       "      <th>local_authority</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>1267</th>\n",
+       "      <td>HM</td>\n",
+       "      <td>High Muffles</td>\n",
+       "      <td>Rural Background</td>\n",
+       "      <td>54.334497</td>\n",
+       "      <td>-0.80882</td>\n",
+       "      <td>O3</td>\n",
+       "      <td>Ozone</td>\n",
+       "      <td>1987-07-16</td>\n",
+       "      <td>ongoing</td>\n",
+       "      <td>2025-09-30</td>\n",
+       "      <td>Yorkshire &amp; Humberside</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Ryedale</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "     site_id     site_name     location_type   latitude  longitude parameter  \\\n",
+       "1267      HM  High Muffles  Rural Background  54.334497   -0.80882        O3   \n",
+       "\n",
+       "     Parameter_name  start_date end_date ratified_to                    zone  \\\n",
+       "1267          Ozone  1987-07-16  ongoing  2025-09-30  Yorkshire & Humberside   \n",
+       "\n",
+       "     agglomeration local_authority  \n",
+       "1267           NaN         Ryedale  "
+      ]
+     },
+     "execution_count": 11,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "final_sites = meta.get_site(point=point)\n",
+    "final_sites"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Start to download the selected station data\n",
+    "- Use \"start\" and \"end\" to define a period of time.\n",
+    "- Other parameters are the same as \"Download data by a bounds of longitude and latitude\" part"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "     site_id     site_name     location_type   latitude  longitude parameter  \\\n",
+      "1267      HM  High Muffles  Rural Background  54.334497   -0.80882        O3   \n",
+      "\n",
+      "     Parameter_name  start_date end_date ratified_to                    zone  \\\n",
+      "1267          Ozone  1987-07-16  ongoing  2025-09-30  Yorkshire & Humberside   \n",
+      "\n",
+      "     agglomeration local_authority  \n",
+      "1267           NaN         Ryedale  \n"
+     ]
+    }
+   ],
+   "source": [
+    "meta.download_sites(\n",
+    "    port=\"aurn\",\n",
+    "    pollutant=\"PM2.5\",\n",
+    "    start=\"2017-12-01\",\n",
+    "    end=\"2018-11-30\",\n",
+    "    output_dir=\"data/test_pm25_station\",\n",
+    "    download_mode=\"stream\",     \n",
+    "    save_per_site=True,\n",
+    "    save_merged=False,\n",
+    "    add_site_id=True\n",
+    ")"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "## Download data by site_id"
+   ]
+  },
+  {
+   "cell_type": "markdown",
+   "metadata": {},
+   "source": [
+    "### Load the obsaq package and check the site information"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "application/vnd.microsoft.datawrangler.viewer.v0+json": {
+       "columns": [
+        {
+         "name": "index",
+         "rawType": "int64",
+         "type": "integer"
+        },
+        {
+         "name": "site_id",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "site_name",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "location_type",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "latitude",
+         "rawType": "float64",
+         "type": "float"
+        },
+        {
+         "name": "longitude",
+         "rawType": "float64",
+         "type": "float"
+        },
+        {
+         "name": "parameter",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "Parameter_name",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "start_date",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "end_date",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "ratified_to",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "zone",
+         "rawType": "object",
+         "type": "string"
+        },
+        {
+         "name": "agglomeration",
+         "rawType": "object",
+         "type": "unknown"
+        },
+        {
+         "name": "local_authority",
+         "rawType": "object",
+         "type": "string"
+        }
+       ],
+       "ref": "9a76a6d9-5acb-48c7-a3ee-aa20c955c82b",
+       "rows": [
+        [
+         "0",
+         "ABD",
+         "Aberdeen",
+         "Urban Background",
+         "57.15736",
+         "-2.094278",
+         "O3",
+         "Ozone",
+         "2003-08-01",
+         "2021-09-20",
+         "2021-09-20",
+         "North East Scotland",
+         null,
+         "Aberdeen City"
+        ],
+        [
+         "1",
+         "ABD",
+         "Aberdeen",
+         "Urban Background",
+         "57.15736",
+         "-2.094278",
+         "NO",
+         "Nitric oxide",
+         "1999-09-18",
+         "2021-09-20",
+         "2021-09-20",
+         "North East Scotland",
+         null,
+         "Aberdeen City"
+        ],
+        [
+         "2",
+         "ABD",
+         "Aberdeen",
+         "Urban Background",
+         "57.15736",
+         "-2.094278",
+         "NO2",
+         "Nitrogen dioxide",
+         "1999-09-18",
+         "2021-09-20",
+         "2021-09-20",
+         "North East Scotland",
+         null,
+         "Aberdeen City"
+        ],
+        [
+         "3",
+         "ABD",
+         "Aberdeen",
+         "Urban Background",
+         "57.15736",
+         "-2.094278",
+         "NOXasNO2",
+         "Nitrogen oxides as nitrogen dioxide",
+         "1999-09-18",
+         "2021-09-20",
+         "2021-09-20",
+         "North East Scotland",
+         null,
+         "Aberdeen City"
+        ],
+        [
+         "4",
+         "ABD",
+         "Aberdeen",
+         "Urban Background",
+         "57.15736",
+         "-2.094278",
+         "SO2",
+         "Sulphur dioxide",
+         "2001-01-01",
+         "2007-09-30",
+         "2007-09-30",
+         "North East Scotland",
+         null,
+         "Aberdeen City"
+        ]
+       ],
+       "shape": {
+        "columns": 13,
+        "rows": 5
+       }
+      },
+      "text/html": [
+       "<div>\n",
+       "<style scoped>\n",
+       "    .dataframe tbody tr th:only-of-type {\n",
+       "        vertical-align: middle;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe tbody tr th {\n",
+       "        vertical-align: top;\n",
+       "    }\n",
+       "\n",
+       "    .dataframe thead th {\n",
+       "        text-align: right;\n",
+       "    }\n",
+       "</style>\n",
+       "<table border=\"1\" class=\"dataframe\">\n",
+       "  <thead>\n",
+       "    <tr style=\"text-align: right;\">\n",
+       "      <th></th>\n",
+       "      <th>site_id</th>\n",
+       "      <th>site_name</th>\n",
+       "      <th>location_type</th>\n",
+       "      <th>latitude</th>\n",
+       "      <th>longitude</th>\n",
+       "      <th>parameter</th>\n",
+       "      <th>Parameter_name</th>\n",
+       "      <th>start_date</th>\n",
+       "      <th>end_date</th>\n",
+       "      <th>ratified_to</th>\n",
+       "      <th>zone</th>\n",
+       "      <th>agglomeration</th>\n",
+       "      <th>local_authority</th>\n",
+       "    </tr>\n",
+       "  </thead>\n",
+       "  <tbody>\n",
+       "    <tr>\n",
+       "      <th>0</th>\n",
+       "      <td>ABD</td>\n",
+       "      <td>Aberdeen</td>\n",
+       "      <td>Urban Background</td>\n",
+       "      <td>57.15736</td>\n",
+       "      <td>-2.094278</td>\n",
+       "      <td>O3</td>\n",
+       "      <td>Ozone</td>\n",
+       "      <td>2003-08-01</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>North East Scotland</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Aberdeen City</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>1</th>\n",
+       "      <td>ABD</td>\n",
+       "      <td>Aberdeen</td>\n",
+       "      <td>Urban Background</td>\n",
+       "      <td>57.15736</td>\n",
+       "      <td>-2.094278</td>\n",
+       "      <td>NO</td>\n",
+       "      <td>Nitric oxide</td>\n",
+       "      <td>1999-09-18</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>North East Scotland</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Aberdeen City</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>2</th>\n",
+       "      <td>ABD</td>\n",
+       "      <td>Aberdeen</td>\n",
+       "      <td>Urban Background</td>\n",
+       "      <td>57.15736</td>\n",
+       "      <td>-2.094278</td>\n",
+       "      <td>NO2</td>\n",
+       "      <td>Nitrogen dioxide</td>\n",
+       "      <td>1999-09-18</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>North East Scotland</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Aberdeen City</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>3</th>\n",
+       "      <td>ABD</td>\n",
+       "      <td>Aberdeen</td>\n",
+       "      <td>Urban Background</td>\n",
+       "      <td>57.15736</td>\n",
+       "      <td>-2.094278</td>\n",
+       "      <td>NOXasNO2</td>\n",
+       "      <td>Nitrogen oxides as nitrogen dioxide</td>\n",
+       "      <td>1999-09-18</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>2021-09-20</td>\n",
+       "      <td>North East Scotland</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Aberdeen City</td>\n",
+       "    </tr>\n",
+       "    <tr>\n",
+       "      <th>4</th>\n",
+       "      <td>ABD</td>\n",
+       "      <td>Aberdeen</td>\n",
+       "      <td>Urban Background</td>\n",
+       "      <td>57.15736</td>\n",
+       "      <td>-2.094278</td>\n",
+       "      <td>SO2</td>\n",
+       "      <td>Sulphur dioxide</td>\n",
+       "      <td>2001-01-01</td>\n",
+       "      <td>2007-09-30</td>\n",
+       "      <td>2007-09-30</td>\n",
+       "      <td>North East Scotland</td>\n",
+       "      <td>NaN</td>\n",
+       "      <td>Aberdeen City</td>\n",
+       "    </tr>\n",
+       "  </tbody>\n",
+       "</table>\n",
+       "</div>"
+      ],
+      "text/plain": [
+       "  site_id site_name     location_type  latitude  longitude parameter  \\\n",
+       "0     ABD  Aberdeen  Urban Background  57.15736  -2.094278        O3   \n",
+       "1     ABD  Aberdeen  Urban Background  57.15736  -2.094278        NO   \n",
+       "2     ABD  Aberdeen  Urban Background  57.15736  -2.094278       NO2   \n",
+       "3     ABD  Aberdeen  Urban Background  57.15736  -2.094278  NOXasNO2   \n",
+       "4     ABD  Aberdeen  Urban Background  57.15736  -2.094278       SO2   \n",
+       "\n",
+       "                        Parameter_name  start_date    end_date ratified_to  \\\n",
+       "0                                Ozone  2003-08-01  2021-09-20  2021-09-20   \n",
+       "1                         Nitric oxide  1999-09-18  2021-09-20  2021-09-20   \n",
+       "2                     Nitrogen dioxide  1999-09-18  2021-09-20  2021-09-20   \n",
+       "3  Nitrogen oxides as nitrogen dioxide  1999-09-18  2021-09-20  2021-09-20   \n",
+       "4                      Sulphur dioxide  2001-01-01  2007-09-30  2007-09-30   \n",
+       "\n",
+       "                  zone agglomeration local_authority  \n",
+       "0  North East Scotland           NaN   Aberdeen City  \n",
+       "1  North East Scotland           NaN   Aberdeen City  \n",
+       "2  North East Scotland           NaN   Aberdeen City  \n",
+       "3  North East Scotland           NaN   Aberdeen City  \n",
+       "4  North East Scotland           NaN   Aberdeen City  "
+      ]
+     },
+     "execution_count": 13,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
     "import obsaq\n",
     "\n",
-    "meta = obsaq.obsaq.meta()\n",
+    "meta = obsaq.meta()\n",
     "site_table = meta.get_metadata('aurn')\n",
     "\n",
     "site_table.head(5)"
@@ -1698,7 +1533,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -1783,7 +1618,7 @@
          "type": "string"
         }
        ],
-       "ref": "e03d4806-45bb-4f8e-80f3-7064f04aced1",
+       "ref": "8883b456-1395-40ed-8082-d45cec45b893",
        "rows": [
         [
          "0",
@@ -1873,7 +1708,7 @@
        "0           NaN   Aberdeen City  "
       ]
      },
-     "execution_count": 11,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1894,7 +1729,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 12,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -1966,7 +1801,7 @@
  ],
  "metadata": {
   "kernelspec": {
-   "display_name": "obsaq39",
+   "display_name": "obsaq39v2",
    "language": "python",
    "name": "python3"
   },
