@@ -10,7 +10,8 @@ import importlib.resources as pkg_resources
 from io import StringIO
 import re
 from typing import Optional
-
+from pandas.errors import DtypeWarning
+warnings.simplefilter("ignore", DtypeWarning)
 
 def _errmsg(msg):
     print('Error: ' + msg)

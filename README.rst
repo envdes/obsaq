@@ -24,7 +24,7 @@ Step 1: create an environment::
 
     $ conda activate obsaq
 
-    $ conda install -c conda-forge numpy pandas pyreadr
+    $ conda install -c conda-forge numpy pandas pyreadr requests
 
 Step 2: install using pip::
 
