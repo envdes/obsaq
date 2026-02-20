@@ -423,7 +423,9 @@
     "- `download_mode`: \"Stream\" for saving final and intermediate files while \"memory\" for only the final file.\n",
     "- `save_per_site`: whether save files for every station individually.\n",
     "- `save_merged`: whether save the merged file for all selected data.\n",
-    "- `add_site_id`: whether include site id in the downloaded file."
+    "- `add_site_id`: whether include site id in the downloaded file.\n",
+    "\n",
+    "Warnings are normal for merging data with different format. Ingoring them can be fine. "
    ]
   },
   {
