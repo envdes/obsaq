@@ -34,13 +34,28 @@ Step 2: install using pip::
 
     $ git clone https://github.com/envdes/obsaq
     $ cd obsaq
-    $ python setup.py obsaq
+    $ python setup.py install
 
 How to use it?
 --------------
 Python
 
 Please check the `tutorial <https://envdes.github.io/obsaq/>`_ for more information.
+
+Recent Update
+-------------
+This version introduces major improvements in:
+
+- Robust pollutant and time filtering (cross-year supported)
+- Improved merging and duplicate-column handling
+- Flexible configuration loading
+- Cleaner, more reproducible outputs
+
+We recommend upgrading to the latest version.
+
+Data Validation
+---------------
+The downloaded datasets have been cross-checked against the official AURN website data and the original RData sources. Site counts were found to be consistent across sources.
 
 How to ask for help
 -------------------
