@@ -22,7 +22,9 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" /> 
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Check out the avaialble stations" href="../map.html" />
+    <link rel="prev" title="About" href="../overview.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -49,8 +51,19 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html">About</a></li>
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
 </ul>
-<ul>
-<li class="toctree-l1"><a class="reference internal" href="download_aurn_update.html">Obtain the data from AURN</a></li>
+<ul class="current">
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Obtain the data from AURN</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-range">Choose the stations by range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-selected-station-data">Start to download the selected station data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-site_id">Download data by site_id</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
 <ul>
@@ -88,38 +101,96 @@
 <p>Users can give a bounds of longitude and latitude to download the station data.</p>
 <section id="Load-the-OBSAQ-package-and-Define-the-range">
 <h3>Load the OBSAQ package and Define the range<a class="headerlink" href="#Load-the-OBSAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">obsaq</span><span class="w"> </span><span class="kn">import</span> <span class="n">config</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">obsaq.obsaq</span><span class="w"> </span><span class="kn">import</span> <span class="n">read_sites</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;file:&quot;</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obsaq</span><span class="p">,</span> <span class="s2">&quot;__file__&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;path:&quot;</span><span class="p">,</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">obsaq</span><span class="p">,</span> <span class="s2">&quot;__path__&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">))</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;spec:&quot;</span><span class="p">,</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">__spec__</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;cwd:&quot;</span><span class="p">,</span> <span class="nb">__import__</span><span class="p">(</span><span class="s2">&quot;os&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">getcwd</span><span class="p">())</span>
 
-<span class="n">lon_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
-<span class="n">lon_max</span> <span class="o">=</span> <span class="mi">2</span>
-<span class="n">lat_min</span> <span class="o">=</span> <span class="mi">50</span>
-<span class="n">lat_max</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">lon_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">9</span>
+<span class="n">lon_max</span> <span class="o">=</span> <span class="mf">1.8</span>
+<span class="n">lat_min</span> <span class="o">=</span> <span class="mi">49</span>
+<span class="n">lat_max</span> <span class="o">=</span> <span class="mi">61</span>
 <span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="n">lon_min</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">]</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+file: /Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/__init__.py
+path: [&#39;/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq&#39;]
+spec: ModuleSpec(name=&#39;obsaq&#39;, loader=&lt;_frozen_importlib_external.SourceFileLoader object at 0x1066aa3d0&gt;, origin=&#39;/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/__init__.py&#39;, submodule_search_locations=[&#39;/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq&#39;])
+cwd: /Users/user/Documents/GitHub/obsaq/docs/notebook
+</pre></div></div>
 </div>
 </section>
 <section id="Get-the-station-metadata">
 <h3>Get the station metadata<a class="headerlink" href="#Get-the-station-metadata" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
-<div class="nbinput nblast docutils container">
+<div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
 <span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
 </pre></div>
 </div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+<span class="ansi-red-fg">---------------------------------------------------------------------------</span>
+<span class="ansi-red-fg">TypeError</span>                                 Traceback (most recent call last)
+Cell <span class="ansi-green-fg">In[2], line 1</span>
+<span class="ansi-green-fg">----&gt; 1</span> meta <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">obsaq</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">obsaq</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">meta</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">      2</span> site_table <span style="color: rgb(98,98,98)">=</span> meta<span style="color: rgb(98,98,98)">.</span>get_metadata(<span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">aurn</span><span style="color: rgb(175,0,0)">&#39;</span>)
+
+File <span class="ansi-green-fg">~/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:24</span>, in <span class="ansi-cyan-fg">meta.__init__</span><span class="ansi-blue-fg">(self)</span>
+<span class="ansi-green-intense-fg ansi-bold">     23</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">__init__</span>(<span style="color: rgb(0,135,0)">self</span>):
+<span class="ansi-green-fg">---&gt; 24</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">with</span> <span class="ansi-yellow-bg">pkg_resources</span><span class="ansi-yellow-bg" style="color: rgb(98,98,98)">.</span><span class="ansi-yellow-bg">open_text</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">obsaq.obsaq</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">config.py</span><span class="ansi-yellow-bg" style="color: rgb(175,0,0)">&#39;</span><span class="ansi-yellow-bg">)</span> <span class="ansi-bold" style="color: rgb(0,135,0)">as</span> file:
+<span class="ansi-green-intense-fg ansi-bold">     25</span>         <span style="color: rgb(0,135,0)">self</span><span style="color: rgb(98,98,98)">.</span>source <span style="color: rgb(98,98,98)">=</span> json<span style="color: rgb(98,98,98)">.</span>load(file)
+
+File <span class="ansi-green-fg">/opt/anaconda3/envs/obsaq39/lib/python3.9/importlib/resources.py:121</span>, in <span class="ansi-cyan-fg">open_text</span><span class="ansi-blue-fg">(package, resource, encoding, errors)</span>
+<span class="ansi-green-intense-fg ansi-bold">    115</span> <span class="ansi-bold" style="color: rgb(0,135,0)">def</span><span style="color: rgb(188,188,188)"> </span><span style="color: rgb(0,0,255)">open_text</span>(package: Package,
+<span class="ansi-green-intense-fg ansi-bold">    116</span>               resource: Resource,
+<span class="ansi-green-intense-fg ansi-bold">    117</span>               encoding: <span style="color: rgb(0,135,0)">str</span> <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">utf-8</span><span style="color: rgb(175,0,0)">&#39;</span>,
+<span class="ansi-green-intense-fg ansi-bold">    118</span>               errors: <span style="color: rgb(0,135,0)">str</span> <span style="color: rgb(98,98,98)">=</span> <span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(175,0,0)">strict</span><span style="color: rgb(175,0,0)">&#39;</span>) <span style="color: rgb(98,98,98)">-</span><span style="color: rgb(98,98,98)">&gt;</span> TextIO:
+<span class="ansi-green-intense-fg ansi-bold">    119</span> <span style="color: rgb(188,188,188)">    </span><span style="color: rgb(175,0,0)">&#34;&#34;&#34;Return a file-like object opened for text reading of the resource.&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">    120</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> TextIOWrapper(
+<span class="ansi-green-fg">--&gt; 121</span>         <span class="ansi-yellow-bg">open_binary</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">package</span><span class="ansi-yellow-bg">,</span><span class="ansi-yellow-bg"> </span><span class="ansi-yellow-bg">resource</span><span class="ansi-yellow-bg">)</span>, encoding<span style="color: rgb(98,98,98)">=</span>encoding, errors<span style="color: rgb(98,98,98)">=</span>errors)
+
+File <span class="ansi-green-fg">/opt/anaconda3/envs/obsaq39/lib/python3.9/importlib/resources.py:88</span>, in <span class="ansi-cyan-fg">open_binary</span><span class="ansi-blue-fg">(package, resource)</span>
+<span class="ansi-green-intense-fg ansi-bold">     86</span> <span style="color: rgb(175,0,0)">&#34;&#34;&#34;Return a file-like object opened for binary reading of the resource.&#34;&#34;&#34;</span>
+<span class="ansi-green-intense-fg ansi-bold">     87</span> resource <span style="color: rgb(98,98,98)">=</span> _normalize_path(resource)
+<span class="ansi-green-fg">---&gt; 88</span> package <span style="color: rgb(98,98,98)">=</span> <span class="ansi-yellow-bg">_get_package</span><span class="ansi-yellow-bg">(</span><span class="ansi-yellow-bg">package</span><span class="ansi-yellow-bg">)</span>
+<span class="ansi-green-intense-fg ansi-bold">     89</span> reader <span style="color: rgb(98,98,98)">=</span> _get_resource_reader(package)
+<span class="ansi-green-intense-fg ansi-bold">     90</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> reader <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(175,0,255)">not</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+
+File <span class="ansi-green-fg">/opt/anaconda3/envs/obsaq39/lib/python3.9/importlib/resources.py:51</span>, in <span class="ansi-cyan-fg">_get_package</span><span class="ansi-blue-fg">(package)</span>
+<span class="ansi-green-intense-fg ansi-bold">     49</span> module <span style="color: rgb(98,98,98)">=</span> _resolve(package)
+<span class="ansi-green-intense-fg ansi-bold">     50</span> <span class="ansi-bold" style="color: rgb(0,135,0)">if</span> module<span style="color: rgb(98,98,98)">.</span>__spec__<span style="color: rgb(98,98,98)">.</span>submodule_search_locations <span class="ansi-bold" style="color: rgb(175,0,255)">is</span> <span class="ansi-bold" style="color: rgb(0,135,0)">None</span>:
+<span class="ansi-green-fg">---&gt; 51</span>     <span class="ansi-bold" style="color: rgb(0,135,0)">raise</span> <span class="ansi-bold" style="color: rgb(215,95,95)">TypeError</span>(<span style="color: rgb(175,0,0)">&#39;</span><span class="ansi-bold" style="color: rgb(175,95,135)">{!r}</span><span style="color: rgb(175,0,0)"> is not a package</span><span style="color: rgb(175,0,0)">&#39;</span><span style="color: rgb(98,98,98)">.</span>format(package))
+<span class="ansi-green-intense-fg ansi-bold">     52</span> <span class="ansi-bold" style="color: rgb(0,135,0)">return</span> module
+
+<span class="ansi-red-fg">TypeError</span>: &#39;obsaq.obsaq&#39; is not a package
+</pre></div></div>
 </div>
 </section>
 <section id="Choose-the-stations-by-range">
 <h3>Choose the stations by range<a class="headerlink" href="#Choose-the-stations-by-range" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
@@ -132,246 +203,12 @@
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Site is selected by bounds: [-1, 2, 50, 55]
+Site is selected by bounds: [-9, 1.8, 49, 61]
 </pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>site_id</th>
-      <th>site_name</th>
-      <th>location_type</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>parameter</th>
-      <th>Parameter_name</th>
-      <th>start_date</th>
-      <th>end_date</th>
-      <th>ratified_to</th>
-      <th>zone</th>
-      <th>agglomeration</th>
-      <th>local_authority</th>
-    </tr>
-    <tr>
-      <th>rownames</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>364</th>
-      <td>BDMP</td>
-      <td>Borehamwood Meadow Park</td>
-      <td>Urban Background</td>
-      <td>51.662332</td>
-      <td>-0.270001</td>
-      <td>NO</td>
-      <td>Nitric oxide</td>
-      <td>2017-10-01</td>
-      <td>ongoing</td>
-      <td>2023-12-31</td>
-      <td>Eastern</td>
-      <td>NaN</td>
-      <td>Hertsmere</td>
-    </tr>
-    <tr>
-      <th>365</th>
-      <td>BDMP</td>
-      <td>Borehamwood Meadow Park</td>
-      <td>Urban Background</td>
-      <td>51.662332</td>
-      <td>-0.270001</td>
-      <td>NO2</td>
-      <td>Nitrogen dioxide</td>
-      <td>2017-10-01</td>
-      <td>ongoing</td>
-      <td>2023-12-31</td>
-      <td>Eastern</td>
-      <td>NaN</td>
-      <td>Hertsmere</td>
-    </tr>
-    <tr>
-      <th>366</th>
-      <td>BDMP</td>
-      <td>Borehamwood Meadow Park</td>
-      <td>Urban Background</td>
-      <td>51.662332</td>
-      <td>-0.270001</td>
-      <td>NOXasNO2</td>
-      <td>Nitrogen oxides as nitrogen dioxide</td>
-      <td>2017-10-01</td>
-      <td>ongoing</td>
-      <td>2023-12-31</td>
-      <td>Eastern</td>
-      <td>NaN</td>
-      <td>Hertsmere</td>
-    </tr>
-    <tr>
-      <th>367</th>
-      <td>BDMP</td>
-      <td>Borehamwood Meadow Park</td>
-      <td>Urban Background</td>
-      <td>51.662332</td>
-      <td>-0.270001</td>
-      <td>PM10</td>
-      <td>PM10 particulate matter (Hourly measured)</td>
-      <td>2022-03-22</td>
-      <td>ongoing</td>
-      <td>2023-12-31</td>
-      <td>Eastern</td>
-      <td>NaN</td>
-      <td>Hertsmere</td>
-    </tr>
-    <tr>
-      <th>368</th>
-      <td>BDMP</td>
-      <td>Borehamwood Meadow Park</td>
-      <td>Urban Background</td>
-      <td>51.662332</td>
-      <td>-0.270001</td>
-      <td>PM2.5</td>
-      <td>PM2.5 particulate matter (Hourly measured)</td>
-      <td>2022-03-22</td>
-      <td>ongoing</td>
-      <td>2023-12-31</td>
-      <td>Eastern</td>
-      <td>NaN</td>
-      <td>Hertsmere</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-</section>
-<section id="Start-to-download-the-selected-station-data">
-<h3>Start to download the selected station data<a class="headerlink" href="#Start-to-download-the-selected-station-data" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: the year of data to be downloaded. Defaults to 2010.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">output_dir</span></code>: the directory to save the downloaded data. Defaults to <code class="docutils literal notranslate"><span class="pre">metadata/prep_obs_data</span></code>.</p></li>
-<li><p><code class="docutils literal notranslate"><span class="pre">log</span></code>: whether to print the log. Defaults to <code class="docutils literal notranslate"><span class="pre">False</span></code>.</p></li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;metadata/prep_obs_data&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-</pre></div>
-</div>
 </div>
 <div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/BEX_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/BOT_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/BRIT_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/BRT3_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CA1_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CAM_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CANT_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CHAT_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CLL2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/CRD2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/EB_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HG1_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HG2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HIL_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HM_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HOPE_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HORE_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HORS_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HR3_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HRL_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HUL2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/KC1_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/LH_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/LON6_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/MKTH_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/MY1_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/NO12_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/NTON_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/OSY_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/REA1_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/ROCH_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/SCN2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/SDY_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/SEND_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/SIB_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/SK5_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/STOR_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/TED_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/TH2_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/THUR_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/WEYB_2010.csv
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/WFEN_2010.csv
-</pre></div></div>
-</div>
-</section>
-</section>
-<section id="Download-data-by-a-point-of-longitude-and-latitude">
-<h2>Download data by a point of longitude and latitude<a class="headerlink" href="#Download-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
-<p>Users can give a point of longitude and latitude to download the station data.</p>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
-
-<span class="n">lon</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="mf">55.0</span>
-<span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-<p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
-<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
-
-<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
 <div class="output_area rendered_html docutils container">
 <div>
 <style scoped>
@@ -405,26 +242,10 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <th>agglomeration</th>
       <th>local_authority</th>
     </tr>
-    <tr>
-      <th>rownames</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>0</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -440,7 +261,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -456,7 +277,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -472,7 +293,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -488,7 +309,406 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>4</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>SO2</td>
+      <td>Sulphur dioxide</td>
+      <td>2001-01-01</td>
+      <td>2007-09-30</td>
+      <td>2007-09-30</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Start-to-download-the-selected-station-data">
+<h3>Start to download the selected station data<a class="headerlink" href="#Start-to-download-the-selected-station-data" title="Link to this heading"></a></h3>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">pollutant</span></code>: See names of pollutants. Define one pollutant, diverse pollutants or all pollutants to download the data for them. Pollutants can be defined as “PM2.5”,”PM10”,”O3”,”NO”,”NO2”,”NOXasNO2” or “SO2”.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: the start date of data to be downloaded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">end</span></code>: the end date of data to be downloaded.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">year</span></code>: the year of data to be downloaded. Defaults to 2010.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">output_dir</span></code>: the directory to save the downloaded data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">download_mode</span></code>: “Stream” for saving final and intermediate files while “memory” for only the final file.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_per_site</span></code>: whether save files for every station individually.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">save_merged</span></code>: whether save the merged file for all selected data.</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">add_site_id</span></code>: whether include site id in the downloaded file.</p></li>
+</ul>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 1: Download the final merged file and also download intermediate files for every station.</span>
+<span class="n">merged_df</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
+    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;aurn&quot;</span><span class="p">,</span>
+    <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Before filtering = 321
+After filter_sites_by_date: 168 sites found.
+After filter_sites_by_poll: 80 sites found.
+Saved per-site file: data/test_pm25/ABD_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (33,34,54,55,72,73,87,88,93,94,96,97,105,106,108,109) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved per-site file: data/test_pm25/ACTH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/AGRN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BEL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BEX_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BIRR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BLC2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BMLD_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BORN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BPLE_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BRS8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CARD_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CARL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHAT_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (3,4,81,82,123,124,126,127) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (18,19,102,103,105,106,117,118,120,121) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved per-site file: data/test_pm25/CHBO_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHBR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHLG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHS7_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CLL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/COAL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/DERR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/EAGL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/EB_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ECCL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ED3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GHSR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GKA8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GLKP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GRAN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HOPE_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HORS_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HRL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HUL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/INV2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/KC1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEAM_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEAR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LECU_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LED6_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEED_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LN_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (24,25,48,49,60,61) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (24,25) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved per-site file: data/test_pm25/LON6_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LVP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/MAN3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/MID_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (63,64) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved per-site file: data/test_pm25/MY1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NEWC_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NO12_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NOTT_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NPT3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NTN4_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/OX8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PEMB_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PLYM_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PMTH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PRES_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PT4_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/REA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ROCH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SASH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SDY_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SEND_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SHBR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SHDG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SOTR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SOUT_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/STOK_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/STOR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SUN2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SWA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/TED2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/TRAN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WAR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WIG5_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WREX_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WTHG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/YK10_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/YK11_PM2.5_20171201_20181130.csv
+Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Method 2: Only download the final merged file.</span>
+<span class="n">merged_df</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
+    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;aurn&quot;</span><span class="p">,</span>
+    <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_final&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
+<br/></pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Before filtering = 80
+After filter_sites_by_date: 80 sites found.
+After filter_sites_by_poll: 80 sites found.
+</pre></div></div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area stderr docutils container">
+<div class="highlight"><pre>
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (33,34,54,55,72,73,87,88,93,94,96,97,105,106,108,109) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (3,4,81,82,123,124,126,127) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (18,19,102,103,105,106,117,118,120,121) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (24,25,48,49,60,61) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (24,25) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+/Users/user/Documents/PHD/research/others_research_tasks/python_package30_11_25/0202editable/obsaq/obsaq/obsaq.py:407: DtypeWarning: Columns (63,64) have mixed types. Specify dtype option on import or set low_memory=False.
+  df = pd.read_csv(StringIO(r.text), skiprows=4)
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Download-data-by-a-point-of-longitude-and-latitude">
+<h2>Download data by a point of longitude and latitude<a class="headerlink" href="#Download-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<p>Users can give a point of longitude and latitude to download the station data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+
+<span class="n">lon</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">55.0</span>
+<span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
+
+<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>2003-08-01</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>4</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -508,7 +728,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
@@ -525,8 +745,7 @@ Site is selected by point: [0.0, 55.0]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
@@ -539,18 +758,28 @@ parameter                              O3
 Parameter_name                      Ozone
 start_date                     1987-07-16
 end_date                          ongoing
-ratified_to                    2023-12-31
+ratified_to                    2025-09-30
 zone               Yorkshire &amp; Humberside
 agglomeration                         NaN
 local_authority                   Ryedale
-Name: 1200, dtype: object
+Name: 1267, dtype: object
 </pre></div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;data/prep_obs_data&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
+    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;aurn&quot;</span><span class="p">,</span>
+    <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_station&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -559,19 +788,22 @@ Name: 1200, dtype: object
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/HM_2010.csv
+Before filtering = 1
+After filter_sites_by_date: 1 sites found.
+After filter_sites_by_poll: 1 sites found.
+Saved per-site file: data/test_pm25_station/ABD_PM2.5_20171201_20181130.csv
 </pre></div></div>
 </div>
 </section>
 <section id="Download-data-by-site_id">
 <h2>Download data by site_id<a class="headerlink" href="#Download-data-by-site_id" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
 
-<span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
 <span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
 
 <span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -579,8 +811,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -615,26 +846,10 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <th>agglomeration</th>
       <th>local_authority</th>
     </tr>
-    <tr>
-      <th>rownames</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>0</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -650,7 +865,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>2</th>
+      <th>1</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -666,7 +881,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>3</th>
+      <th>2</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -682,7 +897,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>4</th>
+      <th>3</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -698,7 +913,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
       <td>Aberdeen City</td>
     </tr>
     <tr>
-      <th>5</th>
+      <th>4</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -718,7 +933,7 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">site_id</span><span class="o">=</span><span class="s1">&#39;ABD&#39;</span><span class="p">)</span>
@@ -735,8 +950,7 @@ Site is selected by site_id: ABD
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -771,26 +985,10 @@ Site is selected by site_id: ABD
       <th>agglomeration</th>
       <th>local_authority</th>
     </tr>
-    <tr>
-      <th>rownames</th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
   </thead>
   <tbody>
     <tr>
-      <th>1</th>
+      <th>0</th>
       <td>ABD</td>
       <td>Aberdeen</td>
       <td>Urban Background</td>
@@ -810,10 +1008,20 @@ Site is selected by site_id: ABD
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2010</span><span class="p">,</span> <span class="n">output_dir</span><span class="o">=</span><span class="s1">&#39;data/prep_obs_data&#39;</span><span class="p">,</span> <span class="n">log</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
+    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;aurn&quot;</span><span class="p">,</span>
+    <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
+    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
+    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_siteid&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -822,7 +1030,10 @@ Site is selected by site_id: ABD
 </div>
 <div class="output_area docutils container">
 <div class="highlight"><pre>
-Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/site_data/ABD_2010.csv
+Before filtering = 1
+After filter_sites_by_date: 1 sites found.
+After filter_sites_by_poll: 1 sites found.
+Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 </pre></div></div>
 </div>
 <div class="nbinput nblast docutils container">
@@ -839,7 +1050,10 @@ Data has downloaded successfully. URL: https://uk-air.defra.gov.uk/data_files/si
 
            </div>
           </div>
-          <footer>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../overview.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../map.html" class="btn btn-neutral float-right" title="Check out the avaialble stations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
 
   <hr/>
 
