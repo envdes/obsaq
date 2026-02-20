@@ -21,7 +21,7 @@ def _warnmsg(msg):
 
 class meta:
     def __init__(self):
-        with pkg_resources.open_text('obsaq.obsaq', 'config.py') as file:
+        with pkg_resources.open_text('obsaq', 'config.py') as file:
             self.source = json.load(file)
 
     def _dedupe_same_name_columns(self, df: pd.DataFrame) -> pd.DataFrame:
