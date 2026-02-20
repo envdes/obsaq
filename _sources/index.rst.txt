@@ -35,10 +35,7 @@ Contributors: `Haofan Wang <https://github.com/Airwhf/>`_, `Zhiyi Song <https://
    :maxdepth: 2
    :caption: Tutorial
 
-  notebook/download_aurn
-  notebook/download_rdata
-  notebook/read_aurn
-  notebook/read_rdata
+  notebook/download_aurn_update
 
 .. toctree::
    :maxdepth: 2
