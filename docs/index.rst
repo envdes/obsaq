@@ -1,5 +1,5 @@
 .. obsaq documentation master file, created by
-   sphinx-quickstart on Wed May  8 10:47:39 2024.
+   sphinx-quickstart on Wed May  8 10:47:39 2024, updated on Fri Feb  20 14:23:50 2026.
    You can adapt this file completely to your liking, but it should at least
    contain the root `toctree` directive.
 
