@@ -54,7 +54,6 @@
 <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="get_and_analyse_data.html">Get and analyse data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get_and_analyse_data.html#Analyse-the-data-and-draw-plots">Analyse the data and draw plots</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Obtain the data from AURN</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-range">Load the ObsAQ package and Define the range</a></li>
@@ -63,25 +62,39 @@
 <li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-selected-station-data">Start to download the selected station data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-site_id">Download data by site_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-point">Load the ObsAQ package and Define the point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-point">Choose the stations by point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Start to download the selected station data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Read-the-data-from-AURN">Read the data from AURN</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude">Read the site data by a bounds of longitude and latitude</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Load the ObsAQ package and Define the range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Get the station metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id3">Choose the stations by range</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-site_id">Download data by site_id</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-check-the-site-information">Load the ObsAQ package and check the site information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-site_id">Choose the stations by site_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id3">Start to download the selected station data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-the-data-from-AURN">Read the data from AURN</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude">Read the site data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id4">Load the ObsAQ package and Define the range</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id5">Get the station metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id6">Choose the stations by range</a></li>
 <li class="toctree-l4"><a class="reference internal" href="#Choose-a-site-by-site_id-and-read-it-directly">Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly</a></li>
 </ul>
 </li>
+<li class="toctree-l3"><a class="reference internal" href="#Read-data-by-a-point-of-longitude-and-latitude">Read data by a point of longitude and latitude</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#id7">Load the ObsAQ package and Define the point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id8">Get the station metadata</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#id9">Choose the stations by point</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#Read-the-station-data">Read the station data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Read-data-by-a-point-of-longitude-and-latitude">Read data by a point of longitude and latitude</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="download_and_read_rdata.html">Obtain the data from RData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_and_read_rdata.html#Read-the-data-from-RData">Read the data from RData</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
 <ul>
@@ -469,6 +482,8 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Download-data-by-a-point-of-longitude-and-latitude">
 <h2>Download data by a point of longitude and latitude<a class="headerlink" href="#Download-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a point of longitude and latitude to download the station data.</p>
+<section id="Load-the-ObsAQ-package-and-Define-the-point">
+<h3>Load the ObsAQ package and Define the point<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-point" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -481,6 +496,9 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h3>Get the station metadata<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -615,6 +633,9 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 </table>
 </div></div>
 </div>
+</section>
+<section id="Choose-the-stations-by-point">
+<h3>Choose the stations by point<a class="headerlink" href="#Choose-the-stations-by-point" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -691,6 +712,9 @@ Site is selected by point: [0.0, 55.0]
 </table>
 </div></div>
 </div>
+</section>
+<section id="id2">
+<h3>Start to download the selected station data<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use “start” and “end” to define a period of time.</p></li>
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
@@ -729,8 +753,11 @@ Site is selected by point: [0.0, 55.0]
 </pre></div></div>
 </div>
 </section>
+</section>
 <section id="Download-data-by-site_id">
 <h2>Download data by site_id<a class="headerlink" href="#Download-data-by-site_id" title="Link to this heading"></a></h2>
+<section id="Load-the-ObsAQ-package-and-check-the-site-information">
+<h3>Load the ObsAQ package and check the site information<a class="headerlink" href="#Load-the-ObsAQ-package-and-check-the-site-information" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -866,6 +893,9 @@ Site is selected by point: [0.0, 55.0]
 </table>
 </div></div>
 </div>
+</section>
+<section id="Choose-the-stations-by-site_id">
+<h3>Choose the stations by site_id<a class="headerlink" href="#Choose-the-stations-by-site_id" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -942,6 +972,9 @@ Site is selected by site_id: ABD
 </table>
 </div></div>
 </div>
+</section>
+<section id="id3">
+<h3>Start to download the selected station data<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use “start” and “end” to define a period of time.</p></li>
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
@@ -1019,12 +1052,12 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 </section>
 </section>
 <section id="Read-the-data-from-AURN">
-<h1>Read the data from AURN<a class="headerlink" href="#Read-the-data-from-AURN" title="Link to this heading"></a></h1>
+<h2>Read the data from AURN<a class="headerlink" href="#Read-the-data-from-AURN" title="Link to this heading"></a></h2>
 <section id="Read-the-site-data-by-a-bounds-of-longitude-and-latitude">
-<h2>Read the site data by a bounds of longitude and latitude<a class="headerlink" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<h3>Read the site data by a bounds of longitude and latitude<a class="headerlink" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h3>
 <p>Users can give a bounds of longitude and latitude to read the site data.</p>
-<section id="id1">
-<h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<section id="id4">
+<h4>Load the ObsAQ package and Define the range<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1040,8 +1073,8 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 </div>
 </div>
 </section>
-<section id="id2">
-<h3>Get the station metadata<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="id5">
+<h4>Get the station metadata<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1053,8 +1086,8 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 </div>
 </div>
 </section>
-<section id="id3">
-<h3>Choose the stations by range<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<section id="id6">
+<h4>Choose the stations by range<a class="headerlink" href="#id6" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -1195,6 +1228,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </table>
 </div></div>
 </div>
+</section>
 <section id="Choose-a-site-by-site_id-and-read-it-directly">
 <h4>Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly<a class="headerlink" href="#Choose-a-site-by-site_id-and-read-it-directly" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
@@ -1402,10 +1436,11 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </div>
 </section>
 </section>
-</section>
 <section id="Read-data-by-a-point-of-longitude-and-latitude">
-<h2>Read data by a point of longitude and latitude<a class="headerlink" href="#Read-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<h3>Read data by a point of longitude and latitude<a class="headerlink" href="#Read-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h3>
 <p>Users can give a point of longitude and latitude to read the station data.</p>
+<section id="id7">
+<h4>Load the ObsAQ package and Define the point<a class="headerlink" href="#id7" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1418,6 +1453,9 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </pre></div>
 </div>
 </div>
+</section>
+<section id="id8">
+<h4>Get the station metadata<a class="headerlink" href="#id8" title="Link to this heading"></a></h4>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
@@ -1552,6 +1590,9 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </table>
 </div></div>
 </div>
+</section>
+<section id="id9">
+<h4>Choose the stations by point<a class="headerlink" href="#id9" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
 </pre></div>
@@ -1628,6 +1669,9 @@ Site is selected by point: [0.0, 55.0]
 </table>
 </div></div>
 </div>
+</section>
+<section id="Read-the-station-data">
+<h4>Read the station data<a class="headerlink" href="#Read-the-station-data" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
@@ -1867,6 +1911,8 @@ Site is selected by point: [0.0, 55.0]
 <p>8760 rows × 14 columns</p>
 </div></div>
 </div>
+</section>
+</section>
 </section>
 </section>
 

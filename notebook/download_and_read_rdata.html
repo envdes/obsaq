@@ -54,9 +54,7 @@
 <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="get_and_analyse_data.html">Get and analyse data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="get_and_analyse_data.html#Analyse-the-data-and-draw-plots">Analyse the data and draw plots</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html">Obtain the data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html#Read-the-data-from-AURN">Read the data from AURN</a></li>
 <li class="toctree-l1 current"><a class="current reference internal" href="#">Obtain the data from RData</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-range">Load the ObsAQ package and Define the range</a></li>
@@ -67,10 +65,18 @@
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#Download-data-by-site_id">Download data by site_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-the-data-from-RData">Read the data from RData</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Read-the-data-Load-the-ObsAQ-package-and-define-the-range">Read the data Load the ObsAQ package and define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-RData">Get the RData</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Choose the stations by range</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#Read-RData-by-a-point-of-longitude-and-latitude">Read RData by a point of longitude and latitude</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Read-the-data-from-RData">Read the data from RData</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Read-RData-by-a-point-of-longitude-and-latitude">Read RData by a point of longitude and latitude</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-define-the-point">Load the ObsAQ package and define the point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-point">Choose the stations by point</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -998,9 +1004,11 @@ Site is selected by site_id: LH
 </pre></div></div>
 </div>
 </section>
-</section>
 <section id="Read-the-data-from-RData">
-<h1>Read the data from RData<a class="headerlink" href="#Read-the-data-from-RData" title="Link to this heading"></a></h1>
+<h2>Read the data from RData<a class="headerlink" href="#Read-the-data-from-RData" title="Link to this heading"></a></h2>
+<p>Users can give a bounds of longitude and latitude to read the site data.</p>
+<section id="Read-the-data-Load-the-ObsAQ-package-and-define-the-range">
+<h3>Read the data Load the ObsAQ package and define the range<a class="headerlink" href="#Read-the-data-Load-the-ObsAQ-package-and-define-the-range" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
@@ -1015,6 +1023,9 @@ Site is selected by site_id: LH
 </pre></div>
 </div>
 </div>
+</section>
+<section id="Get-the-RData">
+<h3>Get the RData<a class="headerlink" href="#Get-the-RData" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
@@ -1025,6 +1036,9 @@ Site is selected by site_id: LH
 </pre></div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h3>Choose the stations by range<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
@@ -1166,8 +1180,12 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </div></div>
 </div>
 <section id="Read-RData-by-a-point-of-longitude-and-latitude">
-<h2>Read RData by a point of longitude and latitude<a class="headerlink" href="#Read-RData-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<h4>Read RData by a point of longitude and latitude<a class="headerlink" href="#Read-RData-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h4>
 <p>Users can give a point of longitude and latitude to read the station data.</p>
+</section>
+</section>
+<section id="Load-the-ObsAQ-package-and-define-the-point">
+<h3>Load the ObsAQ package and define the point<a class="headerlink" href="#Load-the-ObsAQ-package-and-define-the-point" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
@@ -1180,6 +1198,9 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </pre></div>
 </div>
 </div>
+</section>
+<section id="id2">
+<h3>Get the station metadata<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[16]:
@@ -1315,6 +1336,9 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </table>
 </div></div>
 </div>
+</section>
+<section id="Choose-the-stations-by-point">
+<h3>Choose the stations by point<a class="headerlink" href="#Choose-the-stations-by-point" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[17]:
 </pre></div>
@@ -1391,6 +1415,7 @@ Site is selected by point: [0.0, 55.0]
 </table>
 </div></div>
 </div>
+</section>
 </section>
 </section>
 

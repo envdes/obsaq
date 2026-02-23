@@ -61,18 +61,27 @@
 <li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-merged-targeted-station-data">Start to download the merged targeted station data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-a-point-of-longitude-and-latitude">Merge data by a point of longitude and latitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-site_id">Merge data by site_id</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-a-point-of-longitude-and-latitude">Merge data by a point of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-point">Load the ObsAQ package and Define the point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id1">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-point">Choose the stations by point</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Start-to-merge-the-selected-station-data">Start to merge the selected station data</a></li>
 </ul>
 </li>
-<li class="toctree-l1"><a class="reference internal" href="#Analyse-the-data-and-draw-plots">Analyse the data and draw plots</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Temporal-trend-of-the-air-pollutant-concentration.">Temporal trend of the air pollutant concentration.</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-site_id">Merge data by site_id</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-check-the-site-information">Load the ObsAQ package and check the site information</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-site_id">Choose the stations by site_id</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#id2">Start to merge the selected station data</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Analyse-the-data-and-draw-plots">Analyse the data and draw plots</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Temporal-trend-of-the-air-pollutant-concentration.">Temporal trend of the air pollutant concentration.</a></li>
+</ul>
+</li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html">Obtain the data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html#Read-the-data-from-AURN">Read the data from AURN</a></li>
 <li class="toctree-l1"><a class="reference internal" href="download_and_read_rdata.html">Obtain the data from RData</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_and_read_rdata.html#Read-the-data-from-RData">Read the data from RData</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
 <ul>
@@ -380,6 +389,8 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Merge-data-by-a-point-of-longitude-and-latitude">
 <h2>Merge data by a point of longitude and latitude<a class="headerlink" href="#Merge-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a point of longitude and latitude to download the station data.</p>
+<section id="Load-the-ObsAQ-package-and-Define-the-point">
+<h3>Load the ObsAQ package and Define the point<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-point" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
@@ -392,6 +403,9 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div>
 </div>
 </div>
+</section>
+<section id="id1">
+<h3>Get the station metadata<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
@@ -527,6 +541,9 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </table>
 </div></div>
 </div>
+</section>
+<section id="Choose-the-stations-by-point">
+<h3>Choose the stations by point<a class="headerlink" href="#Choose-the-stations-by-point" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
@@ -603,6 +620,9 @@ Site is selected by point: [0.0, 55.0]
 </table>
 </div></div>
 </div>
+</section>
+<section id="Start-to-merge-the-selected-station-data">
+<h3>Start to merge the selected station data<a class="headerlink" href="#Start-to-merge-the-selected-station-data" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use “start” and “end” to define a period of time.</p></li>
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
@@ -642,8 +662,11 @@ Warning: No data found for any site within the specified time range.
 </pre></div></div>
 </div>
 </section>
+</section>
 <section id="Merge-data-by-site_id">
 <h2>Merge data by site_id<a class="headerlink" href="#Merge-data-by-site_id" title="Link to this heading"></a></h2>
+<section id="Load-the-ObsAQ-package-and-check-the-site-information">
+<h3>Load the ObsAQ package and check the site information<a class="headerlink" href="#Load-the-ObsAQ-package-and-check-the-site-information" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -780,6 +803,9 @@ Warning: No data found for any site within the specified time range.
 </table>
 </div></div>
 </div>
+</section>
+<section id="Choose-the-stations-by-site_id">
+<h3>Choose the stations by site_id<a class="headerlink" href="#Choose-the-stations-by-site_id" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
@@ -856,6 +882,9 @@ Site is selected by site_id: ABD
 </table>
 </div></div>
 </div>
+</section>
+<section id="id2">
+<h3>Start to merge the selected station data<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use “start” and “end” to define a period of time.</p></li>
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
@@ -1069,9 +1098,9 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 </section>
 </section>
 <section id="Analyse-the-data-and-draw-plots">
-<h1>Analyse the data and draw plots<a class="headerlink" href="#Analyse-the-data-and-draw-plots" title="Link to this heading"></a></h1>
+<h2>Analyse the data and draw plots<a class="headerlink" href="#Analyse-the-data-and-draw-plots" title="Link to this heading"></a></h2>
 <section id="Temporal-trend-of-the-air-pollutant-concentration.">
-<h2>Temporal trend of the air pollutant concentration.<a class="headerlink" href="#Temporal-trend-of-the-air-pollutant-concentration." title="Link to this heading"></a></h2>
+<h3>Temporal trend of the air pollutant concentration.<a class="headerlink" href="#Temporal-trend-of-the-air-pollutant-concentration." title="Link to this heading"></a></h3>
 <p>After data filtering and preprocessing, we can do various analysis based on the data. Here, we use a trend analysis to examine how PM2.5 concentration varies over time.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
@@ -1123,6 +1152,7 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 <img alt="../_images/notebook_get_and_analyse_data_28_0.png" src="../_images/notebook_get_and_analyse_data_28_0.png" />
 </div>
 </div>
+</section>
 </section>
 </section>
 
