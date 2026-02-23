@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Merge data from AURN &mdash; ObsAQ v0.0.0 documentation</title>
+  <title>Obtain the data from AURN &mdash; ObsAQ v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -22,9 +22,7 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Read the data from AURN" href="read_aurn.html" />
-    <link rel="prev" title="Obtain the data from Rdata" href="download_rdata.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,21 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
-<ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="download_aurn.html">Obtain the data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_rdata.html">Obtain the data from Rdata</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Merge data from AURN</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Read-and-merge-data-by-a-bounds-of-longitude-and-latitude">Read and merge data by a bounds of longitude and latitude</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Get-the-station-metadata">Get the station metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-range">Choose the stations by range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-merged-targeted-station-data">Start to download the merged targeted station data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-a-point-of-longitude-and-latitude">Merge data by a point of longitude and latitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-site_id">Merge data by site_id</a></li>
-</ul>
-</li>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="read_aurn.html">Read the data from AURN</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
@@ -88,9 +72,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Merge data from AURN</li>
+      <li class="breadcrumb-item active">Obtain the data from AURN</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebook/merge_data.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/notebook/download_and_read_aurn.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,15 +82,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Merge-data-from-AURN">
-<h1>Merge data from AURN<a class="headerlink" href="#Merge-data-from-AURN" title="Link to this heading"></a></h1>
-<section id="Read-and-merge-data-by-a-bounds-of-longitude-and-latitude">
-<h2>Read and merge data by a bounds of longitude and latitude<a class="headerlink" href="#Read-and-merge-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+  <section id="Obtain-the-data-from-AURN">
+<h1>Obtain the data from AURN<a class="headerlink" href="#Obtain-the-data-from-AURN" title="Link to this heading"></a></h1>
+<section id="Download-data-by-a-bounds-of-longitude-and-latitude">
+<h2>Download data by a bounds of longitude and latitude<a class="headerlink" href="#Download-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a bounds of longitude and latitude to download the station data.</p>
-<section id="Load-the-OBSAQ-package-and-Define-the-range">
-<h3>Load the OBSAQ package and Define the range<a class="headerlink" href="#Load-the-OBSAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
+<section id="Load-the-ObsAQ-package-and-Define-the-range">
+<h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -124,7 +108,7 @@
 <h3>Get the station metadata<a class="headerlink" href="#Get-the-station-metadata" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
@@ -136,7 +120,7 @@
 <section id="Choose-the-stations-by-range">
 <h3>Choose the stations by range<a class="headerlink" href="#Choose-the-stations-by-range" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
@@ -153,7 +137,7 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -276,9 +260,8 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 </div></div>
 </div>
 </section>
-<section id="Start-to-download-the-merged-targeted-station-data">
-<h3>Start to download the merged targeted station data<a class="headerlink" href="#Start-to-download-the-merged-targeted-station-data" title="Link to this heading"></a></h3>
-<p>Download the final merged file for all targeted station data using memory.</p>
+<section id="Start-to-download-the-selected-station-data">
+<h3>Start to download the selected station data<a class="headerlink" href="#Start-to-download-the-selected-station-data" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pollutant</span></code>: See names of pollutants. Define one pollutant, diverse pollutants or all pollutants to download the data for them. Pollutants can be defined as “PM2.5”,”PM10”,”O3”,”NO”,”NO2”,”NOXasNO2” or “SO2”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: the start date of data to be downloaded.</p></li>
@@ -290,9 +273,10 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 <li><p><code class="docutils literal notranslate"><span class="pre">save_merged</span></code>: whether save the merged file for all selected data.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_site_id</span></code>: whether include site id in the downloaded file.</p></li>
 </ul>
-<p>Warnings are normal for processing data with different format. Ingoring them can be fine.</p>
+<p>Download data for every station. Decide whether to download the final merged data for all targeted stations by choosing “save_merged=True/False”.</p>
+<p>Warnings are normal for merging data with different format. Ingoring them can be fine.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">merged_df</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
@@ -300,13 +284,13 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
     <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
-    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_final&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
-<br/></pre></div>
+</pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -367,16 +351,96 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 3061            York
 
 [1625 rows x 13 columns]
-Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ABD_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ACTH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/AGRN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BEL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BEX_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BIRR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BLC2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BMLD_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BORN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BPLE_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/BRS8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CARD_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CARL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHAT_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHBO_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHBR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHLG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CHS7_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/CLL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/COAL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/DERR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/EAGL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/EB_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ECCL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ED3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GHSR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GKA8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GLKP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/GRAN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HOPE_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HORS_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HRL_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/HUL2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/INV2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/KC1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEAM_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEAR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LECU_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LED6_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LEED_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LON6_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/LVP_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/MAN3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/MID_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/MY1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NEWC_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NO12_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NOTT_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NPT3_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/NTN4_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/OX8_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PEMB_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PLYM_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PMTH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PRES_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/PT4_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/REA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/ROCH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SASH_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SDY_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SEND_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SHBR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SHDG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SOTR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SOUT_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/STOK_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/STOR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SUN2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/SWA1_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/TED2_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/TRAN_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WAR_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WIG5_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WREX_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/WTHG_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/YK10_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25/YK11_PM2.5_20171201_20181130.csv
+Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div></div>
 </div>
 </section>
 </section>
-<section id="Merge-data-by-a-point-of-longitude-and-latitude">
-<h2>Merge data by a point of longitude and latitude<a class="headerlink" href="#Merge-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<section id="Download-data-by-a-point-of-longitude-and-latitude">
+<h2>Download data by a point of longitude and latitude<a class="headerlink" href="#Download-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a point of longitude and latitude to download the station data.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -389,10 +453,10 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
 <span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
 
 <span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -400,8 +464,7 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -523,7 +586,7 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
@@ -540,7 +603,7 @@ Site is selected by point: [0.0, 55.0]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -603,7 +666,7 @@ Site is selected by point: [0.0, 55.0]
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
@@ -612,9 +675,9 @@ Site is selected by point: [0.0, 55.0]
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_station&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
@@ -633,19 +696,18 @@ Site is selected by point: [0.0, 55.0]
 
      agglomeration local_authority
 1267           NaN         Ryedale
-Warning: No data found for any site within the specified time range.
 </pre></div></div>
 </div>
 </section>
-<section id="Merge-data-by-site_id">
-<h2>Merge data by site_id<a class="headerlink" href="#Merge-data-by-site_id" title="Link to this heading"></a></h2>
+<section id="Download-data-by-site_id">
+<h2>Download data by site_id<a class="headerlink" href="#Download-data-by-site_id" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
 
-<span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
 <span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
 
 <span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -653,8 +715,7 @@ Warning: No data found for any site within the specified time range.
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
-</pre></div>
+<div class="prompt empty docutils container">
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -776,7 +837,7 @@ Warning: No data found for any site within the specified time range.
 </div></div>
 </div>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">site_id</span><span class="o">=</span><span class="s1">&#39;ABD&#39;</span><span class="p">)</span>
@@ -793,7 +854,7 @@ Site is selected by site_id: ABD
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -856,7 +917,7 @@ Site is selected by site_id: ABD
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
@@ -865,15 +926,15 @@ Site is selected by site_id: ABD
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_siteid&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput docutils container">
+<div class="nboutput nblast docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -922,11 +983,67 @@ Site is selected by site_id: ABD
 12       Never  North East Scotland           NaN   Aberdeen City
 13       Never  North East Scotland           NaN   Aberdeen City
 14       Never  North East Scotland           NaN   Aberdeen City
-Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
+Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
+</pre></div></div>
+</div>
+</section>
+</section>
+<section id="Read-the-data-from-AURN">
+<h1>Read the data from AURN<a class="headerlink" href="#Read-the-data-from-AURN" title="Link to this heading"></a></h1>
+<section id="Read-the-site-data-by-a-bounds-of-longitude-and-latitude">
+<h2>Read the site data by a bounds of longitude and latitude<a class="headerlink" href="#Read-the-site-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<p>Users can give a bounds of longitude and latitude to read the site data.</p>
+<section id="id1">
+<h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+
+<span class="n">lon_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">lon_max</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">lat_min</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">lat_max</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="n">lon_min</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id2">
+<h3>Get the station metadata<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="id3">
+<h3>Choose the stations by range<a class="headerlink" href="#id3" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">final_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by bounds: [-1, 2, 50, 55]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -949,58 +1066,220 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
     <tr style="text-align: right;">
       <th></th>
       <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>93</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>PM2.5</td>
+      <td>PM2.5 particulate matter (Hourly measured)</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>wd</td>
+      <td>Modelled Wind Direction</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>ws</td>
+      <td>Modelled Wind Speed</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>temp</td>
+      <td>Modelled Temperature</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.661229</td>
+      <td>-0.270550</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>2017-10-01</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<section id="Choose-a-site-by-site_id-and-read-it-directly">
+<h4>Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly<a class="headerlink" href="#Choose-a-site-by-site_id-and-read-it-directly" title="Link to this heading"></a></h4>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;BDMP&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
       <th>Date</th>
       <th>time</th>
-      <th>PM&lt;sub&gt;2.5&lt;/sub&gt; particulate matter (Hourly measured)</th>
-      <th>status.7</th>
-      <th>unit.7</th>
+      <th>Nitric oxide</th>
+      <th>status</th>
+      <th>unit</th>
+      <th>Nitrogen dioxide</th>
+      <th>status.1</th>
+      <th>unit.1</th>
+      <th>Nitrogen oxides as nitrogen dioxide</th>
+      <th>status.2</th>
+      <th>unit.2</th>
     </tr>
   </thead>
   <tbody>
     <tr>
       <th>0</th>
-      <td>ABD</td>
-      <td>30-11-2017</td>
-      <td>24:00</td>
-      <td>2.2</td>
+      <td>01-01-2018</td>
+      <td>01:00</td>
+      <td>0.25166</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>4.75500</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.14087</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>1</th>
-      <td>ABD</td>
-      <td>01-12-2017</td>
-      <td>01:00</td>
-      <td>2.1</td>
+      <td>01-01-2018</td>
+      <td>02:00</td>
+      <td>0.12583</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>6.87575</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>7.06869</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>2</th>
-      <td>ABD</td>
-      <td>01-12-2017</td>
-      <td>02:00</td>
-      <td>3.2</td>
+      <td>01-01-2018</td>
+      <td>03:00</td>
+      <td>0.28312</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>5.78313</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>6.21723</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>3</th>
-      <td>ABD</td>
-      <td>01-12-2017</td>
-      <td>03:00</td>
-      <td>4.1</td>
+      <td>01-01-2018</td>
+      <td>04:00</td>
+      <td>0.22020</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>3.75899</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.09663</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>4</th>
-      <td>ABD</td>
-      <td>01-12-2017</td>
-      <td>04:00</td>
-      <td>2.4</td>
+      <td>01-01-2018</td>
+      <td>05:00</td>
+      <td>0.18874</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>3.27707</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>3.56647</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>...</th>
@@ -1010,55 +1289,552 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
       <td>...</td>
       <td>...</td>
       <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
     </tr>
     <tr>
       <th>8755</th>
-      <td>ABD</td>
-      <td>30-11-2018</td>
-      <td>19:00</td>
-      <td>3.0</td>
+      <td>31-12-2018</td>
+      <td>20:00</td>
+      <td>0.28836</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>12.08703</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>12.52918</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>8756</th>
-      <td>ABD</td>
-      <td>30-11-2018</td>
-      <td>20:00</td>
-      <td>5.6</td>
+      <td>31-12-2018</td>
+      <td>21:00</td>
+      <td>0.18023</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>8.29340</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>8.56974</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>8757</th>
-      <td>ABD</td>
-      <td>30-11-2018</td>
-      <td>21:00</td>
-      <td>3.0</td>
+      <td>31-12-2018</td>
+      <td>22:00</td>
+      <td>0.10814</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>5.52928</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>5.69508</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>8758</th>
-      <td>ABD</td>
-      <td>30-11-2018</td>
-      <td>22:00</td>
-      <td>0.3</td>
+      <td>31-12-2018</td>
+      <td>23:00</td>
+      <td>0.07209</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>4.77096</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.88150</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
     <tr>
       <th>8759</th>
-      <td>ABD</td>
-      <td>30-11-2018</td>
-      <td>23:00</td>
-      <td>5.7</td>
+      <td>31-12-2018</td>
+      <td>24:00</td>
+      <td>0.00000</td>
       <td>R</td>
-      <td>ugm-3 (TEOM FDMS)</td>
+      <td>ugm-3</td>
+      <td>4.17640</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>4.17640</td>
+      <td>R</td>
+      <td>ugm-3</td>
     </tr>
   </tbody>
 </table>
-<p>8760 rows × 6 columns</p>
+<p>8760 rows × 11 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+</section>
+<section id="Read-data-by-a-point-of-longitude-and-latitude">
+<h2>Read data by a point of longitude and latitude<a class="headerlink" href="#Read-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<p>Users can give a point of longitude and latitude to read the station data.</p>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+
+<span class="n">lon</span> <span class="o">=</span> <span class="mf">0.0</span>
+<span class="n">lat</span> <span class="o">=</span> <span class="mf">55.0</span>
+<span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
+
+<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>2003-08-01</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>SO2</td>
+      <td>Sulphur dioxide</td>
+      <td>2001-01-01</td>
+      <td>2007-09-30</td>
+      <td>2007-09-30</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
+<span class="n">final_sites</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by point: [0.0, 55.0]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1267</th>
+      <td>HM</td>
+      <td>High Muffles</td>
+      <td>Rural Background</td>
+      <td>54.334497</td>
+      <td>-0.80882</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>1987-07-16</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>Yorkshire &amp; Humberside</td>
+      <td>NaN</td>
+      <td>Ryedale</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;HM&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Date</th>
+      <th>time</th>
+      <th>Nitric oxide</th>
+      <th>status</th>
+      <th>unit</th>
+      <th>Nitrogen dioxide</th>
+      <th>status.1</th>
+      <th>unit.1</th>
+      <th>Nitrogen oxides as nitrogen dioxide</th>
+      <th>status.2</th>
+      <th>unit.2</th>
+      <th>Ozone</th>
+      <th>status.3</th>
+      <th>unit.3</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>01-01-2018</td>
+      <td>01:00</td>
+      <td>0.36708</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.00358</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.56642</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>65.32591</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>01-01-2018</td>
+      <td>02:00</td>
+      <td>0.28550</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.06600</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.50376</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>65.85810</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>01-01-2018</td>
+      <td>03:00</td>
+      <td>0.27531</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.22261</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.64474</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>67.15531</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>01-01-2018</td>
+      <td>04:00</td>
+      <td>0.24472</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.26951</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.64474</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>66.40692</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>01-01-2018</td>
+      <td>05:00</td>
+      <td>0.30590</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.16255</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.63159</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>66.20735</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8755</th>
+      <td>31-12-2018</td>
+      <td>20:00</td>
+      <td>0.30417</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.38387</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.85025</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>70.34843</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8756</th>
+      <td>31-12-2018</td>
+      <td>21:00</td>
+      <td>0.23657</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.27605</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.63879</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>70.39832</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8757</th>
+      <td>31-12-2018</td>
+      <td>22:00</td>
+      <td>0.33796</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.17346</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.69166</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>69.89939</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8758</th>
+      <td>31-12-2018</td>
+      <td>23:00</td>
+      <td>0.50694</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.44300</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.22030</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>68.85165</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+    <tr>
+      <th>8759</th>
+      <td>31-12-2018</td>
+      <td>24:00</td>
+      <td>0.40556</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>1.70419</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>2.32603</td>
+      <td>R</td>
+      <td>ugm-3</td>
+      <td>67.85380</td>
+      <td>R</td>
+      <td>ugm-3</td>
+    </tr>
+  </tbody>
+</table>
+<p>8760 rows × 14 columns</p>
 </div></div>
 </div>
 </section>
@@ -1067,10 +1843,7 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="download_rdata.html" class="btn btn-neutral float-left" title="Obtain the data from Rdata" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="read_aurn.html" class="btn btn-neutral float-right" title="Read the data from AURN" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 

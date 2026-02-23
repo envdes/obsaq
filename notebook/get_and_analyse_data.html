@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Obtain the data from AURN &mdash; ObsAQ v0.0.0 documentation</title>
+  <title>Get and analyse data from AURN &mdash; ObsAQ v0.0.0 documentation</title>
       <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
       <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
@@ -22,9 +22,7 @@
       <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
     <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
-    <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Obtain the data from Rdata" href="download_rdata.html" />
-    <link rel="prev" title="About" href="../overview.html" /> 
+    <link rel="search" title="Search" href="../search.html" /> 
 </head>
 
 <body class="wy-body-for-nav"> 
@@ -52,21 +50,7 @@
 <li class="toctree-l1"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
-<ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Obtain the data from AURN</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-bounds-of-longitude-and-latitude">Download data by a bounds of longitude and latitude</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Load-the-OBSAQ-package-and-Define-the-range">Load the OBSAQ package and Define the range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Get-the-station-metadata">Get the station metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-range">Choose the stations by range</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-selected-station-data">Start to download the selected station data</a></li>
-</ul>
-</li>
-<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-a-point-of-longitude-and-latitude">Download data by a point of longitude and latitude</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#Download-data-by-site_id">Download data by site_id</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="download_rdata.html">Obtain the data from Rdata</a></li>
-<li class="toctree-l1"><a class="reference internal" href="merge_data.html">Merge data from AURN</a></li>
+<ul>
 <li class="toctree-l1"><a class="reference internal" href="read_aurn.html">Read the data from AURN</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
@@ -88,9 +72,9 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Obtain the data from AURN</li>
+      <li class="breadcrumb-item active">Get and analyse data from AURN</li>
       <li class="wy-breadcrumbs-aside">
-            <a href="../_sources/notebook/download_aurn.ipynb.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/notebook/get_and_analyse_data.ipynb.txt" rel="nofollow"> View page source</a>
       </li>
   </ul>
   <hr/>
@@ -98,13 +82,13 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="Obtain-the-data-from-AURN">
-<h1>Obtain the data from AURN<a class="headerlink" href="#Obtain-the-data-from-AURN" title="Link to this heading"></a></h1>
-<section id="Download-data-by-a-bounds-of-longitude-and-latitude">
-<h2>Download data by a bounds of longitude and latitude<a class="headerlink" href="#Download-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+  <section id="Get-and-analyse-data-from-AURN">
+<h1>Get and analyse data from AURN<a class="headerlink" href="#Get-and-analyse-data-from-AURN" title="Link to this heading"></a></h1>
+<section id="Get-and-merge-data-by-a-bounds-of-longitude-and-latitude">
+<h2>Get and merge data by a bounds of longitude and latitude<a class="headerlink" href="#Get-and-merge-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a bounds of longitude and latitude to download the station data.</p>
-<section id="Load-the-OBSAQ-package-and-Define-the-range">
-<h3>Load the OBSAQ package and Define the range<a class="headerlink" href="#Load-the-OBSAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
+<section id="Load-the-ObsAQ-package-and-Define-the-range">
+<h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
@@ -276,8 +260,9 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 </div></div>
 </div>
 </section>
-<section id="Start-to-download-the-selected-station-data">
-<h3>Start to download the selected station data<a class="headerlink" href="#Start-to-download-the-selected-station-data" title="Link to this heading"></a></h3>
+<section id="Start-to-download-the-merged-targeted-station-data">
+<h3>Start to download the merged targeted station data<a class="headerlink" href="#Start-to-download-the-merged-targeted-station-data" title="Link to this heading"></a></h3>
+<p>Download the final merged file for all targeted station data using memory.</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">pollutant</span></code>: See names of pollutants. Define one pollutant, diverse pollutants or all pollutants to download the data for them. Pollutants can be defined as “PM2.5”,”PM10”,”O3”,”NO”,”NO2”,”NOXasNO2” or “SO2”.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">start</span></code>: the start date of data to be downloaded.</p></li>
@@ -289,8 +274,7 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 <li><p><code class="docutils literal notranslate"><span class="pre">save_merged</span></code>: whether save the merged file for all selected data.</p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">add_site_id</span></code>: whether include site id in the downloaded file.</p></li>
 </ul>
-<p>Download data for every station. Decide whether to download the final merged data for all targeted stations by choosing “save_merged=True/False”.</p>
-<p>Warnings are normal for merging data with different format. Ingoring them can be fine.</p>
+<p>Warnings are normal for processing data with different format. Ingoring them can be fine.</p>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[4]:
 </pre></div>
@@ -300,13 +284,13 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
     <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
-    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_final&quot;</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
     <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
-</pre></div>
+<br/></pre></div>
 </div>
 </div>
 <div class="nboutput nblast docutils container">
@@ -367,93 +351,13 @@ Site is selected by bounds: [-9, 1.8, 49, 61]
 3061            York
 
 [1625 rows x 13 columns]
-Saved per-site file: data/test_pm25/ABD_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/ACTH_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/AGRN_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BEL2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BEX_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BIRR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BLC2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BMLD_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BORN_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BPLE_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/BRS8_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CA1_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CARD_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CARL_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHAT_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHBO_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHBR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHLG_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHP_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CHS7_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/CLL2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/COAL_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/DERR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/EAGL_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/EB_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/ECCL_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/ED3_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/GHSR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/GKA8_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/GLKP_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/GRAN_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/HOPE_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/HORS_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/HRL_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/HUL2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/INV2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/KC1_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LEAM_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LEAR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LECU_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LED6_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LEED_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LN_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LON6_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/LVP_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/MAN3_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/MID_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/MY1_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/NEWC_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/NO12_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/NOTT_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/NPT3_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/NTN4_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/OX8_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/PEMB_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/PLYM_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/PMTH_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/PRES_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/PT4_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/REA1_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/ROCH_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SASH_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SDY_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SEND_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SHBR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SHDG_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SOTR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SOUT_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/STOK_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/STOR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SUN2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/SWA1_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/TED2_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/TRAN_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/WAR_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/WIG5_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/WREX_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/WTHG_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/YK10_PM2.5_20171201_20181130.csv
-Saved per-site file: data/test_pm25/YK11_PM2.5_20171201_20181130.csv
-Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
+Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div></div>
 </div>
 </section>
 </section>
-<section id="Download-data-by-a-point-of-longitude-and-latitude">
-<h2>Download data by a point of longitude and latitude<a class="headerlink" href="#Download-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<section id="Merge-data-by-a-point-of-longitude-and-latitude">
+<h2>Merge data by a point of longitude and latitude<a class="headerlink" href="#Merge-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
 <p>Users can give a point of longitude and latitude to download the station data.</p>
 <div class="nbinput nblast docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
@@ -472,7 +376,7 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
 <span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
 
 <span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
@@ -692,9 +596,9 @@ Site is selected by point: [0.0, 55.0]
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_station&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
@@ -713,11 +617,12 @@ Site is selected by point: [0.0, 55.0]
 
      agglomeration local_authority
 1267           NaN         Ryedale
+Warning: No data found for any site within the specified time range.
 </pre></div></div>
 </div>
 </section>
-<section id="Download-data-by-site_id">
-<h2>Download data by site_id<a class="headerlink" href="#Download-data-by-site_id" title="Link to this heading"></a></h2>
+<section id="Merge-data-by-site_id">
+<h2>Merge data by site_id<a class="headerlink" href="#Merge-data-by-site_id" title="Link to this heading"></a></h2>
 <div class="nbinput docutils container">
 <div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
@@ -944,15 +849,15 @@ Site is selected by site_id: ABD
     <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
     <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
     <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_siteid&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;stream&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">save_merged</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
+    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
     <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
 <span class="p">)</span>
 </pre></div>
 </div>
 </div>
-<div class="nboutput nblast docutils container">
+<div class="nboutput docutils container">
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
@@ -1001,8 +906,201 @@ Site is selected by site_id: ABD
 12       Never  North East Scotland           NaN   Aberdeen City
 13       Never  North East Scotland           NaN   Aberdeen City
 14       Never  North East Scotland           NaN   Aberdeen City
-Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
+Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>Date</th>
+      <th>time</th>
+      <th>PM&lt;sub&gt;2.5&lt;/sub&gt; particulate matter (Hourly measured)</th>
+      <th>status.7</th>
+      <th>unit.7</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABD</td>
+      <td>30-11-2017</td>
+      <td>24:00</td>
+      <td>2.2</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>01-12-2017</td>
+      <td>01:00</td>
+      <td>2.1</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>01-12-2017</td>
+      <td>02:00</td>
+      <td>3.2</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>01-12-2017</td>
+      <td>03:00</td>
+      <td>4.1</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ABD</td>
+      <td>01-12-2017</td>
+      <td>04:00</td>
+      <td>2.4</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>...</th>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+      <td>...</td>
+    </tr>
+    <tr>
+      <th>8755</th>
+      <td>ABD</td>
+      <td>30-11-2018</td>
+      <td>19:00</td>
+      <td>3.0</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>8756</th>
+      <td>ABD</td>
+      <td>30-11-2018</td>
+      <td>20:00</td>
+      <td>5.6</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>8757</th>
+      <td>ABD</td>
+      <td>30-11-2018</td>
+      <td>21:00</td>
+      <td>3.0</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>8758</th>
+      <td>ABD</td>
+      <td>30-11-2018</td>
+      <td>22:00</td>
+      <td>0.3</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+    <tr>
+      <th>8759</th>
+      <td>ABD</td>
+      <td>30-11-2018</td>
+      <td>23:00</td>
+      <td>5.7</td>
+      <td>R</td>
+      <td>ugm-3 (TEOM FDMS)</td>
+    </tr>
+  </tbody>
+</table>
+<p>8760 rows × 6 columns</p>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Analyse-the-data-and-draw-plots">
+<h1>Analyse the data and draw plots<a class="headerlink" href="#Analyse-the-data-and-draw-plots" title="Link to this heading"></a></h1>
+<section id="Temporal-trend-of-the-air-pollutant-concentration.">
+<h2>Temporal trend of the air pollutant concentration.<a class="headerlink" href="#Temporal-trend-of-the-air-pollutant-concentration." title="Link to this heading"></a></h2>
+<p>After data filtering and preprocessing, we can do various analysis based on the data. Here, we use a trend analysis to examine how PM2.5 concentration varies over time.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">matplotlib.pyplot</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">plt</span>
+
+<span class="c1"># Preprocessing</span>
+<span class="n">date_str</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;Date&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+<span class="n">time_str</span> <span class="o">=</span> <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;time&quot;</span><span class="p">]</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">str</span><span class="p">)</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">strip</span><span class="p">()</span>
+
+<span class="c1"># Handle non-standard &quot;24:00&quot; timestamps.</span>
+<span class="n">is_2400</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;24:00&quot;</span><span class="p">)</span>
+<span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
+<span class="n">time_fixed</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">is_2400</span><span class="p">,</span> <span class="s2">&quot;00:00&quot;</span><span class="p">)</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
+    <span class="n">dates</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">time_fixed</span><span class="p">,</span>
+    <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span>
+<span class="p">)</span>
+
+<span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">is_2400</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
+
+<span class="c1"># Write back to the dataframe</span>
+<span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dt</span>
+
+<span class="n">pm_col</span> <span class="o">=</span> <span class="s2">&quot;PM&lt;sub&gt;2.5&lt;/sub&gt; particulate matter (Hourly measured)&quot;</span>
+
+<span class="c1"># Draw the plot</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span>
+    <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">],</span>
+    <span class="n">merged_df</span><span class="p">[</span><span class="n">pm_col</span><span class="p">],</span>
+    <span class="n">linewidth</span><span class="o">=</span><span class="mi">1</span>
+<span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;Datetime&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;PM2.5 (µg/m³)&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="s2">&quot;Temporal variation of PM2.5&quot;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">()</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<img alt="../_images/notebook_get_and_analyse_data_28_0.png" src="../_images/notebook_get_and_analyse_data_28_0.png" />
+</div>
 </div>
 </section>
 </section>
@@ -1010,10 +1108,7 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 
            </div>
           </div>
-          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
-        <a href="../overview.html" class="btn btn-neutral float-left" title="About" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
-        <a href="download_rdata.html" class="btn btn-neutral float-right" title="Obtain the data from Rdata" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-    </div>
+          <footer>
 
   <hr/>
 
