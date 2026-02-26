@@ -1,0 +1,650 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../">
+<head>
+  <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Obtain the data from RData &mdash; ObsAQ v0.0.0 documentation</title>
+      <link rel="stylesheet" type="text/css" href="../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../_static/css/theme.css?v=9edc463e" />
+      <link rel="stylesheet" type="text/css" href="../_static/nbsphinx-code-cells.css?v=2aa19091" />
+
+  
+      <script src="../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../_static/documentation_options.js?v=8b92e751"></script>
+      <script src="../_static/doctools.js?v=fd6eb6e6"></script>
+      <script src="../_static/sphinx_highlight.js?v=6ffebe34"></script>
+      <script crossorigin="anonymous" integrity="sha256-Ae2Vz/4ePdIu6ZyI/5ZGsYnb+m0JlOmKPjt6XZ9JJkA=" src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.3.4/require.min.js"></script>
+      <script>window.MathJax = {"tex": {"inlineMath": [["$", "$"], ["\\(", "\\)"]], "processEscapes": true}, "options": {"ignoreHtmlClass": "tex2jax_ignore|mathjax_ignore|document", "processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+      <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@4/tex-mml-chtml.js"></script>
+    <script src="../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Check out the avaialble stations" href="../map.html" />
+    <link rel="prev" title="Obtain the data from AURN" href="download_and_read_aurn.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../index.html" class="icon icon-home">
+            ObsAQ
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Overview</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html">About</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../overview.html#installation">Installation</a></li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Tutorial</span></p>
+<ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="get_and_analyse_data.html">Get and analyse data from AURN</a></li>
+<li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html">Obtain the data from AURN</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Obtain the data from RData</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#Read-data-by-a-bounds-of-longitude-and-latitude">Read data by a bounds of longitude and latitude</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-range">Load the ObsAQ package and Define the range</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Get-the-station-metadata">Get the station metadata</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-range">Choose the stations by range</a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="#Read-data-by-site_id">Read data by site_id</a></li>
+</ul>
+</li>
+</ul>
+<p class="caption" role="heading"><span class="caption-text">Maps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../map.html">Check out the avaialble stations</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ObsAQ</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../index.html" class="icon icon-home" aria-label="Home"></a></li>
+      <li class="breadcrumb-item active">Obtain the data from RData</li>
+      <li class="wy-breadcrumbs-aside">
+            <a href="../_sources/notebook/read_rdata_by_multiple_methods.ipynb.txt" rel="nofollow"> View page source</a>
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <section id="Obtain-the-data-from-RData">
+<h1>Obtain the data from RData<a class="headerlink" href="#Obtain-the-data-from-RData" title="Link to this heading"></a></h1>
+<section id="Read-data-by-a-bounds-of-longitude-and-latitude">
+<h2>Read data by a bounds of longitude and latitude<a class="headerlink" href="#Read-data-by-a-bounds-of-longitude-and-latitude" title="Link to this heading"></a></h2>
+<p>Users can give a bounds of longitude and latitude to read the station data.</p>
+<section id="Load-the-ObsAQ-package-and-Define-the-range">
+<h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
+<div class="nbinput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+
+<span class="n">lon_min</span> <span class="o">=</span> <span class="o">-</span><span class="mi">1</span>
+<span class="n">lon_max</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">lat_min</span> <span class="o">=</span> <span class="mi">50</span>
+<span class="n">lat_max</span> <span class="o">=</span> <span class="mi">55</span>
+<span class="n">bounds</span><span class="o">=</span><span class="p">[</span><span class="n">lon_min</span><span class="p">,</span> <span class="n">lon_max</span><span class="p">,</span> <span class="n">lat_min</span><span class="p">,</span> <span class="n">lat_max</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</section>
+<section id="Get-the-station-metadata">
+<h3>Get the station metadata<a class="headerlink" href="#Get-the-station-metadata" title="Link to this heading"></a></h3>
+<p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata_RData</span><span class="p">()</span>
+
+<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>2003-08-01</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>SO2</td>
+      <td>Sulphur dioxide</td>
+      <td>2001-01-01</td>
+      <td>2007-09-30</td>
+      <td>2007-09-30</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="Choose-the-stations-by-range">
+<h3>Choose the stations by range<a class="headerlink" href="#Choose-the-stations-by-range" title="Link to this heading"></a></h3>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
+<span class="n">final_sites</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by bounds: [-1, 2, 50, 55]
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[3]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>93</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>PM2.5</td>
+      <td>PM2.5 particulate matter (Hourly measured)</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>94</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>wd</td>
+      <td>Modelled Wind Direction</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>95</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>ws</td>
+      <td>Modelled Wind Speed</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>96</th>
+      <td>AYLA</td>
+      <td>Aylesbury A4157</td>
+      <td>Urban Traffic</td>
+      <td>51.822161</td>
+      <td>-0.793884</td>
+      <td>temp</td>
+      <td>Modelled Temperature</td>
+      <td>2025-08-11</td>
+      <td>ongoing</td>
+      <td>Never</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Aylesbury Vale</td>
+    </tr>
+    <tr>
+      <th>386</th>
+      <td>BDMP</td>
+      <td>Borehamwood Meadow Park</td>
+      <td>Urban Background</td>
+      <td>51.661229</td>
+      <td>-0.270550</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>2017-10-01</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>Eastern</td>
+      <td>NaN</td>
+      <td>Hertsmere</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+<section id="Read-data-by-site_id">
+<h2>Read data by site_id<a class="headerlink" href="#Read-data-by-site_id" title="Link to this heading"></a></h2>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
+
+<span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
+<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata_RData</span><span class="p">()</span>
+
+<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>0</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>2003-08-01</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>1</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO</td>
+      <td>Nitric oxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>2</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NO2</td>
+      <td>Nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>3</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>NOXasNO2</td>
+      <td>Nitrogen oxides as nitrogen dioxide</td>
+      <td>1999-09-18</td>
+      <td>2021-09-20</td>
+      <td>2021-09-20</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+    <tr>
+      <th>4</th>
+      <td>ABD</td>
+      <td>Aberdeen</td>
+      <td>Urban Background</td>
+      <td>57.15736</td>
+      <td>-2.094278</td>
+      <td>SO2</td>
+      <td>Sulphur dioxide</td>
+      <td>2001-01-01</td>
+      <td>2007-09-30</td>
+      <td>2007-09-30</td>
+      <td>North East Scotland</td>
+      <td>NaN</td>
+      <td>Aberdeen City</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+<div class="nbinput docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">site_id</span><span class="o">=</span><span class="s1">&#39;LH&#39;</span><span class="p">)</span>
+<span class="n">final_sites</span><span class="o">.</span><span class="n">drop_duplicates</span><span class="p">(</span><span class="n">subset</span><span class="o">=</span><span class="s1">&#39;site_id&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="nboutput docutils container">
+<div class="prompt empty docutils container">
+</div>
+<div class="output_area docutils container">
+<div class="highlight"><pre>
+Site is selected by site_id: LH
+</pre></div></div>
+</div>
+<div class="nboutput nblast docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+</pre></div>
+</div>
+<div class="output_area rendered_html docutils container">
+<div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>site_id</th>
+      <th>site_name</th>
+      <th>location_type</th>
+      <th>latitude</th>
+      <th>longitude</th>
+      <th>parameter</th>
+      <th>Parameter_name</th>
+      <th>start_date</th>
+      <th>end_date</th>
+      <th>ratified_to</th>
+      <th>zone</th>
+      <th>agglomeration</th>
+      <th>local_authority</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>1949</th>
+      <td>LH</td>
+      <td>Lullington Heath</td>
+      <td>Rural Background</td>
+      <td>50.7937</td>
+      <td>0.18125</td>
+      <td>O3</td>
+      <td>Ozone</td>
+      <td>1986-10-04</td>
+      <td>ongoing</td>
+      <td>2025-09-30</td>
+      <td>South East</td>
+      <td>NaN</td>
+      <td>Wealden</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+</section>
+
+
+           </div>
+          </div>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="download_and_read_aurn.html" class="btn btn-neutral float-left" title="Obtain the data from AURN" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../map.html" class="btn btn-neutral float-right" title="Check out the avaialble stations" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2024, Haofan Wang, Zhonghua Zheng.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

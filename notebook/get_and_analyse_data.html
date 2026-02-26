@@ -61,17 +61,10 @@
 <li class="toctree-l3"><a class="reference internal" href="#Start-to-download-the-merged-targeted-station-data">Start to download the merged targeted station data</a></li>
 </ul>
 </li>
-<li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-a-point-of-longitude-and-latitude">Merge data by a point of longitude and latitude</a><ul>
-<li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-Define-the-point">Load the ObsAQ package and Define the point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id1">Get the station metadata</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-point">Choose the stations by point</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#Start-to-merge-the-selected-station-data">Start to merge the selected station data</a></li>
-</ul>
-</li>
 <li class="toctree-l2"><a class="reference internal" href="#Merge-data-by-site_id">Merge data by site_id</a><ul>
 <li class="toctree-l3"><a class="reference internal" href="#Load-the-ObsAQ-package-and-check-the-site-information">Load the ObsAQ package and check the site information</a></li>
 <li class="toctree-l3"><a class="reference internal" href="#Choose-the-stations-by-site_id">Choose the stations by site_id</a></li>
-<li class="toctree-l3"><a class="reference internal" href="#id2">Start to merge the selected station data</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#Start-to-merge-the-selected-station-data">Start to merge the selected station data</a></li>
 </ul>
 </li>
 <li class="toctree-l2"><a class="reference internal" href="#Analyse-the-data-and-draw-plots">Analyse the data and draw plots</a><ul>
@@ -81,7 +74,7 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="download_and_read_aurn.html">Obtain the data from AURN</a></li>
-<li class="toctree-l1"><a class="reference internal" href="download_and_read_rdata.html">Obtain the data from RData</a></li>
+<li class="toctree-l1"><a class="reference internal" href="read_rdata_by_multiple_methods.html">Obtain the data from RData</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Maps</span></p>
 <ul>
@@ -386,283 +379,6 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div>
 </section>
 </section>
-<section id="Merge-data-by-a-point-of-longitude-and-latitude">
-<h2>Merge data by a point of longitude and latitude<a class="headerlink" href="#Merge-data-by-a-point-of-longitude-and-latitude" title="Link to this heading"></a></h2>
-<p>Users can give a point of longitude and latitude to download the station data.</p>
-<section id="Load-the-ObsAQ-package-and-Define-the-point">
-<h3>Load the ObsAQ package and Define the point<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-point" title="Link to this heading"></a></h3>
-<div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
-
-<span class="n">lon</span> <span class="o">=</span> <span class="mf">0.0</span>
-<span class="n">lat</span> <span class="o">=</span> <span class="mf">55.0</span>
-<span class="n">point</span> <span class="o">=</span> <span class="p">[</span><span class="n">lon</span><span class="p">,</span> <span class="n">lat</span><span class="p">]</span>
-</pre></div>
-</div>
-</div>
-</section>
-<section id="id1">
-<h3>Get the station metadata<a class="headerlink" href="#id1" title="Link to this heading"></a></h3>
-<p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
-<span class="n">site_table</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_metadata</span><span class="p">(</span><span class="s1">&#39;aurn&#39;</span><span class="p">)</span>
-
-<span class="n">site_table</span><span class="o">.</span><span class="n">head</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>site_id</th>
-      <th>site_name</th>
-      <th>location_type</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>parameter</th>
-      <th>Parameter_name</th>
-      <th>start_date</th>
-      <th>end_date</th>
-      <th>ratified_to</th>
-      <th>zone</th>
-      <th>agglomeration</th>
-      <th>local_authority</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>0</th>
-      <td>ABD</td>
-      <td>Aberdeen</td>
-      <td>Urban Background</td>
-      <td>57.15736</td>
-      <td>-2.094278</td>
-      <td>O3</td>
-      <td>Ozone</td>
-      <td>2003-08-01</td>
-      <td>2021-09-20</td>
-      <td>2021-09-20</td>
-      <td>North East Scotland</td>
-      <td>NaN</td>
-      <td>Aberdeen City</td>
-    </tr>
-    <tr>
-      <th>1</th>
-      <td>ABD</td>
-      <td>Aberdeen</td>
-      <td>Urban Background</td>
-      <td>57.15736</td>
-      <td>-2.094278</td>
-      <td>NO</td>
-      <td>Nitric oxide</td>
-      <td>1999-09-18</td>
-      <td>2021-09-20</td>
-      <td>2021-09-20</td>
-      <td>North East Scotland</td>
-      <td>NaN</td>
-      <td>Aberdeen City</td>
-    </tr>
-    <tr>
-      <th>2</th>
-      <td>ABD</td>
-      <td>Aberdeen</td>
-      <td>Urban Background</td>
-      <td>57.15736</td>
-      <td>-2.094278</td>
-      <td>NO2</td>
-      <td>Nitrogen dioxide</td>
-      <td>1999-09-18</td>
-      <td>2021-09-20</td>
-      <td>2021-09-20</td>
-      <td>North East Scotland</td>
-      <td>NaN</td>
-      <td>Aberdeen City</td>
-    </tr>
-    <tr>
-      <th>3</th>
-      <td>ABD</td>
-      <td>Aberdeen</td>
-      <td>Urban Background</td>
-      <td>57.15736</td>
-      <td>-2.094278</td>
-      <td>NOXasNO2</td>
-      <td>Nitrogen oxides as nitrogen dioxide</td>
-      <td>1999-09-18</td>
-      <td>2021-09-20</td>
-      <td>2021-09-20</td>
-      <td>North East Scotland</td>
-      <td>NaN</td>
-      <td>Aberdeen City</td>
-    </tr>
-    <tr>
-      <th>4</th>
-      <td>ABD</td>
-      <td>Aberdeen</td>
-      <td>Urban Background</td>
-      <td>57.15736</td>
-      <td>-2.094278</td>
-      <td>SO2</td>
-      <td>Sulphur dioxide</td>
-      <td>2001-01-01</td>
-      <td>2007-09-30</td>
-      <td>2007-09-30</td>
-      <td>North East Scotland</td>
-      <td>NaN</td>
-      <td>Aberdeen City</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-</section>
-<section id="Choose-the-stations-by-point">
-<h3>Choose the stations by point<a class="headerlink" href="#Choose-the-stations-by-point" title="Link to this heading"></a></h3>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
-<span class="n">final_sites</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-Site is selected by point: [0.0, 55.0]
-</pre></div></div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
-</pre></div>
-</div>
-<div class="output_area rendered_html docutils container">
-<div>
-<style scoped>
-    .dataframe tbody tr th:only-of-type {
-        vertical-align: middle;
-    }
-
-    .dataframe tbody tr th {
-        vertical-align: top;
-    }
-
-    .dataframe thead th {
-        text-align: right;
-    }
-</style>
-<table border="1" class="dataframe">
-  <thead>
-    <tr style="text-align: right;">
-      <th></th>
-      <th>site_id</th>
-      <th>site_name</th>
-      <th>location_type</th>
-      <th>latitude</th>
-      <th>longitude</th>
-      <th>parameter</th>
-      <th>Parameter_name</th>
-      <th>start_date</th>
-      <th>end_date</th>
-      <th>ratified_to</th>
-      <th>zone</th>
-      <th>agglomeration</th>
-      <th>local_authority</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <th>1267</th>
-      <td>HM</td>
-      <td>High Muffles</td>
-      <td>Rural Background</td>
-      <td>54.334497</td>
-      <td>-0.80882</td>
-      <td>O3</td>
-      <td>Ozone</td>
-      <td>1987-07-16</td>
-      <td>ongoing</td>
-      <td>2025-09-30</td>
-      <td>Yorkshire &amp; Humberside</td>
-      <td>NaN</td>
-      <td>Ryedale</td>
-    </tr>
-  </tbody>
-</table>
-</div></div>
-</div>
-</section>
-<section id="Start-to-merge-the-selected-station-data">
-<h3>Start to merge the selected station data<a class="headerlink" href="#Start-to-merge-the-selected-station-data" title="Link to this heading"></a></h3>
-<ul class="simple">
-<li><p>Use “start” and “end” to define a period of time.</p></li>
-<li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
-</ul>
-<div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
-</pre></div>
-</div>
-<div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
-    <span class="n">port</span><span class="o">=</span><span class="s2">&quot;aurn&quot;</span><span class="p">,</span>
-    <span class="n">pollutant</span><span class="o">=</span><span class="s2">&quot;PM2.5&quot;</span><span class="p">,</span>
-    <span class="n">start</span><span class="o">=</span><span class="s2">&quot;2017-12-01&quot;</span><span class="p">,</span>
-    <span class="n">end</span><span class="o">=</span><span class="s2">&quot;2018-11-30&quot;</span><span class="p">,</span>
-    <span class="n">output_dir</span><span class="o">=</span><span class="s2">&quot;data/test_pm25_station&quot;</span><span class="p">,</span>
-    <span class="n">download_mode</span><span class="o">=</span><span class="s2">&quot;memory&quot;</span><span class="p">,</span>
-    <span class="n">save_per_site</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-    <span class="n">save_merged</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
-    <span class="n">add_site_id</span><span class="o">=</span><span class="kc">True</span>
-<span class="p">)</span>
-</pre></div>
-</div>
-</div>
-<div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
-</div>
-<div class="output_area docutils container">
-<div class="highlight"><pre>
-     site_id     site_name     location_type   latitude  longitude parameter  \
-1267      HM  High Muffles  Rural Background  54.334497   -0.80882        O3
-
-     Parameter_name  start_date end_date ratified_to                    zone  \
-1267          Ozone  1987-07-16  ongoing  2025-09-30  Yorkshire &amp; Humberside
-
-     agglomeration local_authority
-1267           NaN         Ryedale
-Warning: No data found for any site within the specified time range.
-</pre></div></div>
-</div>
-</section>
-</section>
 <section id="Merge-data-by-site_id">
 <h2>Merge data by site_id<a class="headerlink" href="#Merge-data-by-site_id" title="Link to this heading"></a></h2>
 <section id="Load-the-ObsAQ-package-and-check-the-site-information">
@@ -883,8 +599,8 @@ Site is selected by site_id: ABD
 </div></div>
 </div>
 </section>
-<section id="id2">
-<h3>Start to merge the selected station data<a class="headerlink" href="#id2" title="Link to this heading"></a></h3>
+<section id="Start-to-merge-the-selected-station-data">
+<h3>Start to merge the selected station data<a class="headerlink" href="#Start-to-merge-the-selected-station-data" title="Link to this heading"></a></h3>
 <ul class="simple">
 <li><p>Use “start” and “end” to define a period of time.</p></li>
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
@@ -1149,7 +865,7 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 <div class="prompt empty docutils container">
 </div>
 <div class="output_area docutils container">
-<img alt="../_images/notebook_get_and_analyse_data_28_0.png" src="../_images/notebook_get_and_analyse_data_28_0.png" />
+<img alt="../_images/notebook_get_and_analyse_data_19_0.png" src="../_images/notebook_get_and_analyse_data_19_0.png" />
 </div>
 </div>
 </section>
