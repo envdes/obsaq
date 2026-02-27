@@ -1,4 +1,5 @@
-![ObsAQ Logo](figures/LOGO_FOR_ObsAQ.png)
+.. image:: figures/LOGO_FOR_ObsAQ.png
+   :align: center
 
 ObsAQ: A Python package for accessing observational air quality data
 --------------------------------------------------------------------
