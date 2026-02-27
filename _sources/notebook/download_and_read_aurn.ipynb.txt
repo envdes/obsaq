@@ -26,7 +26,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 1,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -50,7 +50,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 2,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -152,7 +152,7 @@
          "type": "string"
         }
        ],
-       "ref": "82a34d02-da67-4f0b-9e88-72e9a1e5cba4",
+       "ref": "44c67d1b-3078-43c1-9949-6d0ef7a529e4",
        "rows": [
         [
          "0",
@@ -590,7 +590,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 5,
    "metadata": {},
    "outputs": [
     {
@@ -668,7 +668,7 @@
          "type": "string"
         }
        ],
-       "ref": "198b97af-e026-4f4c-a37d-f352b519124a",
+       "ref": "513386f7-625f-4c26-9f3b-3c84613fac3b",
        "rows": [
         [
          "0",
@@ -898,7 +898,7 @@
        "4  North East Scotland           NaN   Aberdeen City  "
       ]
      },
-     "execution_count": 9,
+     "execution_count": 5,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -921,7 +921,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 10,
+   "execution_count": 6,
    "metadata": {},
    "outputs": [
     {
@@ -1006,7 +1006,7 @@
          "type": "string"
         }
        ],
-       "ref": "841dcd1a-a964-4ce4-9dd6-d3dcaa036ac9",
+       "ref": "dc17e0ec-5171-4f04-a6e7-ee7c6172a64a",
        "rows": [
         [
          "0",
@@ -1096,7 +1096,7 @@
        "0           NaN   Aberdeen City  "
       ]
      },
-     "execution_count": 10,
+     "execution_count": 6,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1117,7 +1117,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 11,
+   "execution_count": 7,
    "metadata": {},
    "outputs": [
     {
@@ -1167,7 +1167,13 @@
       "11  2019-11-07  North East Scotland           NaN   Aberdeen City  \n",
       "12       Never  North East Scotland           NaN   Aberdeen City  \n",
       "13       Never  North East Scotland           NaN   Aberdeen City  \n",
-      "14       Never  North East Scotland           NaN   Aberdeen City  \n",
+      "14       Never  North East Scotland           NaN   Aberdeen City  \n"
+     ]
+    },
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
       "Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv\n"
      ]
     }
@@ -1211,7 +1217,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 8,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1235,7 +1241,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 9,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -1252,7 +1258,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 14,
+   "execution_count": 10,
    "metadata": {},
    "outputs": [
     {
@@ -1337,7 +1343,7 @@
          "type": "string"
         }
        ],
-       "ref": "a5b99ffd-4f3b-493e-8b09-875e76912d46",
+       "ref": "cc81bbc3-551a-43bc-ac15-c1787055df95",
        "rows": [
         [
          "93",
@@ -1567,7 +1573,7 @@
        "386  ongoing  2025-09-30     Eastern           NaN       Hertsmere  "
       ]
      },
-     "execution_count": 14,
+     "execution_count": 10,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -1586,7 +1592,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 11,
    "metadata": {},
    "outputs": [
     {
@@ -1654,7 +1660,7 @@
          "type": "unknown"
         }
        ],
-       "ref": "b2b0142d-6e26-434d-9738-979e6afda55b",
+       "ref": "85bbe433-c8bf-4d5e-ae92-513dd342369c",
        "rows": [
         [
          "0",
@@ -2584,7 +2590,7 @@
        "[8760 rows x 11 columns]"
       ]
      },
-     "execution_count": 15,
+     "execution_count": 11,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2611,7 +2617,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 12,
    "metadata": {},
    "outputs": [],
    "source": [
@@ -2633,7 +2639,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 13,
    "metadata": {},
    "outputs": [
     {
@@ -2711,7 +2717,7 @@
          "type": "string"
         }
        ],
-       "ref": "b2a2e056-8be9-4ddd-927f-e7ddbc368204",
+       "ref": "e5efbb04-63e0-464a-9418-bf1fb0a7c089",
        "rows": [
         [
          "0",
@@ -2941,7 +2947,7 @@
        "4  North East Scotland           NaN   Aberdeen City  "
       ]
      },
-     "execution_count": 17,
+     "execution_count": 13,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -2962,7 +2968,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": 18,
+   "execution_count": 14,
    "metadata": {},
    "outputs": [
     {
@@ -3047,7 +3053,7 @@
          "type": "string"
         }
        ],
-       "ref": "400fa4fd-9994-44b9-8333-f715ca345224",
+       "ref": "14b4394c-217f-435d-a954-39b29f0f1203",
        "rows": [
         [
          "1267",
@@ -3137,7 +3143,7 @@
        "1267           NaN         Ryedale  "
       ]
      },
-     "execution_count": 18,
+     "execution_count": 14,
      "metadata": {},
      "output_type": "execute_result"
     }
@@ -3156,7 +3162,7 @@
   },
   {
    "cell_type": "code",
-   "execution_count": null,
+   "execution_count": 15,
    "metadata": {},
    "outputs": [
     {
@@ -3239,7 +3245,7 @@
          "type": "unknown"
         }
        ],
-       "ref": "1e8f4075-0e4c-48f4-b305-ddd4366f1767",
+       "ref": "cdbe4c33-8eda-4ed2-ab43-7795b7b8f1b6",
        "rows": [
         [
          "0",
@@ -4368,7 +4374,7 @@
        "[8760 rows x 14 columns]"
       ]
      },
-     "execution_count": 19,
+     "execution_count": 15,
      "metadata": {},
      "output_type": "execute_result"
     }

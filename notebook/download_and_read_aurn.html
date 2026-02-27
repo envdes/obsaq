@@ -126,7 +126,7 @@
 <section id="Load-the-ObsAQ-package-and-Define-the-range">
 <h3>Load the ObsAQ package and Define the range<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-range" title="Link to this heading"></a></h3>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[1]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -144,7 +144,7 @@
 <h3>Get the station metadata<a class="headerlink" href="#Get-the-station-metadata" title="Link to this heading"></a></h3>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[2]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
@@ -477,7 +477,7 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Load-the-ObsAQ-package-and-check-the-site-information">
 <h3>Load the ObsAQ package and check the site information<a class="headerlink" href="#Load-the-ObsAQ-package-and-check-the-site-information" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -490,7 +490,8 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -615,7 +616,7 @@ Saved merged file: data/test_pm25/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Choose-the-stations-by-site_id">
 <h3>Choose the stations by site_id<a class="headerlink" href="#Choose-the-stations-by-site_id" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">site_id</span><span class="o">=</span><span class="s1">&#39;ABD&#39;</span><span class="p">)</span>
@@ -632,7 +633,7 @@ Site is selected by site_id: ABD
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -698,7 +699,7 @@ Site is selected by site_id: ABD
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
@@ -777,7 +778,7 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 <section id="id2">
 <h4>Load the ObsAQ package and Define the range<a class="headerlink" href="#id2" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -795,7 +796,7 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 <h4>Get the station metadata<a class="headerlink" href="#id3" title="Link to this heading"></a></h4>
 <p>NOTE: This is the all station information and the next step will choose the stations by bounds.</p>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
@@ -807,7 +808,7 @@ Saved per-site file: data/test_pm25_siteid/ABD_PM2.5_20171201_20181130.csv
 <section id="id4">
 <h4>Choose the stations by range<a class="headerlink" href="#id4" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">bounds</span><span class="o">=</span><span class="n">bounds</span><span class="p">)</span>
@@ -824,7 +825,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -950,7 +951,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 <section id="Choose-a-site-by-site_id-and-read-it-directly">
 <h4>Choose a site by <code class="docutils literal notranslate"><span class="pre">site_id</span></code> and read it directly<a class="headerlink" href="#Choose-a-site-by-site_id-and-read-it-directly" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;BDMP&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
@@ -958,7 +959,8 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -1160,7 +1162,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 <section id="Load-the-ObsAQ-package-and-Define-the-point">
 <h4>Load the ObsAQ package and Define the point<a class="headerlink" href="#Load-the-ObsAQ-package-and-Define-the-point" title="Link to this heading"></a></h4>
 <div class="nbinput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -1176,7 +1178,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 <h4>Get the station metadata<a class="headerlink" href="#id5" title="Link to this heading"></a></h4>
 <p>NOTE: This is the all station information and the next step will choose the stations by point.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span> <span class="o">=</span> <span class="n">obsaq</span><span class="o">.</span><span class="n">meta</span><span class="p">()</span>
@@ -1187,7 +1189,8 @@ Site is selected by bounds: [-1, 2, 50, 55]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[13]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>
@@ -1312,7 +1315,7 @@ Site is selected by bounds: [-1, 2, 50, 55]
 <section id="Choose-the-stations-by-point">
 <h4>Choose the stations by point<a class="headerlink" href="#Choose-the-stations-by-point" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">point</span><span class="o">=</span><span class="n">point</span><span class="p">)</span>
@@ -1329,7 +1332,7 @@ Site is selected by point: [0.0, 55.0]
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[18]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[14]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -1391,7 +1394,7 @@ Site is selected by point: [0.0, 55.0]
 <section id="Read-the-station-data">
 <h4>Read the station data<a class="headerlink" href="#Read-the-station-data" title="Link to this heading"></a></h4>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[ ]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">obsaq</span><span class="o">.</span><span class="n">read_sites</span><span class="p">(</span><span class="s1">&#39;HM&#39;</span><span class="p">,</span> <span class="s1">&#39;aurn&#39;</span><span class="p">,</span> <span class="n">year</span><span class="o">=</span><span class="mi">2018</span><span class="p">)</span>
@@ -1399,7 +1402,8 @@ Site is selected by point: [0.0, 55.0]
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt empty docutils container">
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[15]:
+</pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
 <div>

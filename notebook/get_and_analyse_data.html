@@ -384,7 +384,7 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Load-the-ObsAQ-package-and-check-the-site-information">
 <h3>Load the ObsAQ package and check the site information<a class="headerlink" href="#Load-the-ObsAQ-package-and-check-the-site-information" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">obsaq</span>
@@ -397,7 +397,7 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 </div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[9]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[5]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -523,7 +523,7 @@ Saved merged file: data/test_pm25_final/MERGED_aurn_PM2.5_20171201_20181130.csv
 <section id="Choose-the-stations-by-site_id">
 <h3>Choose the stations by site_id<a class="headerlink" href="#Choose-the-stations-by-site_id" title="Link to this heading"></a></h3>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">final_sites</span> <span class="o">=</span> <span class="n">meta</span><span class="o">.</span><span class="n">get_site</span><span class="p">(</span><span class="n">site_id</span><span class="o">=</span><span class="s1">&#39;ABD&#39;</span><span class="p">)</span>
@@ -540,7 +540,7 @@ Site is selected by site_id: ABD
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[10]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[6]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -606,7 +606,7 @@ Site is selected by site_id: ABD
 <li><p>Other parameters are the same as “Download data by a bounds of longitude and latitude” part</p></li>
 </ul>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">meta</span><span class="o">.</span><span class="n">download_sites</span><span class="p">(</span>
@@ -676,7 +676,7 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 </pre></div></div>
 </div>
 <div class="nboutput nblast docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[11]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[7]:
 </pre></div>
 </div>
 <div class="output_area rendered_html docutils container">
@@ -819,7 +819,7 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 <h3>Temporal trend of the air pollutant concentration.<a class="headerlink" href="#Temporal-trend-of-the-air-pollutant-concentration." title="Link to this heading"></a></h3>
 <p>After data filtering and preprocessing, we can do various analysis based on the data. Here, we use a trend analysis to examine how PM2.5 concentration varies over time.</p>
 <div class="nbinput docutils container">
-<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[12]:
+<div class="prompt highlight-none notranslate"><div class="highlight"><pre><span></span>[8]:
 </pre></div>
 </div>
 <div class="input_area highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
@@ -833,17 +833,14 @@ Saved merged file: data/test_pm25_siteid/MERGED_aurn_PM2.5_20171201_20181130.csv
 <span class="n">is_2400</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">str</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;24:00&quot;</span><span class="p">)</span>
 <span class="n">dates</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span><span class="n">date_str</span><span class="p">,</span> <span class="n">dayfirst</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span><span class="p">)</span>
 <span class="n">time_fixed</span> <span class="o">=</span> <span class="n">time_str</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="o">~</span><span class="n">is_2400</span><span class="p">,</span> <span class="s2">&quot;00:00&quot;</span><span class="p">)</span>
-
 <span class="n">dt</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_datetime</span><span class="p">(</span>
     <span class="n">dates</span><span class="o">.</span><span class="n">dt</span><span class="o">.</span><span class="n">strftime</span><span class="p">(</span><span class="s2">&quot;%Y-%m-</span><span class="si">%d</span><span class="s2">&quot;</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot; &quot;</span> <span class="o">+</span> <span class="n">time_fixed</span><span class="p">,</span>
     <span class="n">errors</span><span class="o">=</span><span class="s2">&quot;coerce&quot;</span>
 <span class="p">)</span>
-
 <span class="n">dt</span> <span class="o">=</span> <span class="n">dt</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">to_timedelta</span><span class="p">(</span><span class="n">is_2400</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">int</span><span class="p">),</span> <span class="n">unit</span><span class="o">=</span><span class="s2">&quot;D&quot;</span><span class="p">)</span>
 
 <span class="c1"># Write back to the dataframe</span>
 <span class="n">merged_df</span><span class="p">[</span><span class="s2">&quot;datetime&quot;</span><span class="p">]</span> <span class="o">=</span> <span class="n">dt</span>
-
 <span class="n">pm_col</span> <span class="o">=</span> <span class="s2">&quot;PM&lt;sub&gt;2.5&lt;/sub&gt; particulate matter (Hourly measured)&quot;</span>
 
 <span class="c1"># Draw the plot</span>
