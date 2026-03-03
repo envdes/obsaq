@@ -8,7 +8,7 @@ Check out the avaialble stations
 The stations of AURN dataset
 -----------------------------------
 
-Original data is from https://uk-air.defra.gov.uk/networks/network-info?view=aurn (last access: 10 May 2024)
+Original data is from https://uk-air.defra.gov.uk/networks/network-info?view=aurn (last access: 26 Feb 2026)
 
 Clike the marks to see stations information. 
 
@@ -23,7 +23,7 @@ Clike the marks to see stations information.
 The stations from Rdata
 -----------------------------------
 
-Original data is from https://bookdown.org/david_carslaw/openair/ (last access: 10 May 2024)
+Original data is from https://bookdown.org/david_carslaw/openair/ (last access: 26 Feb 2026)
 
 Clike the marks to see stations information.
 
