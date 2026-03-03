@@ -7,9 +7,9 @@
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = 'ObsAQ'
-copyright = '2024, Haofan Wang, Zhonghua Zheng'
-author = 'Haofan Wang, Zhonghua Zheng'
-release = 'v0.0.0'
+copyright = '2026, Jinhui Yu, Zhonghua Zheng'
+author = 'Jinhui Yu, Zhonghua Zheng'
+release = 'v0.0.2'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
