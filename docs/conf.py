@@ -9,7 +9,7 @@
 project = 'ObsAQ'
 copyright = '2026, Jinhui Yu, Zhonghua Zheng'
 author = 'Jinhui Yu, Zhonghua Zheng'
-release = 'v0.0.3'
+release = 'v0.0.4'
 
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration

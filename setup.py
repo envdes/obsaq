@@ -16,7 +16,7 @@ with open("README.rst", "r") as fp:
 
 setup(
     name="obsaq",
-    version="0.0.3",
+    version="0.0.4",
     author="Jinhui Yu",
     author_email="yjh12586@163.com",
     url="https://github.com/envdes/obsaq",
