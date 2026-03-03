@@ -3,7 +3,10 @@ About
 
 This notebook demonstrates how to use the `ObsAQ <https://github.com/envdes/obsaq>`__ package in a Jupyter notebook.
 
-Contributors: `Haofan Wang  <https://github.com/Airwhf/>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (Email: zhonghua.zheng@manchester.ac.uk)
+Contributors: 
+v0.0.3: `Jinhui Yu <https://github.com/Jinhui-Yu>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `Ke Liu <https://github.com/onebravekid>`_, `Jiatian Hu <https://github.com/Jiatian-Hu>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (zhonghua.zheng@manchester.ac.uk)
+
+v0.0.0: `Haofan Wang <https://github.com/Airwhf/>`_, `Zhiyi Song <https://github.com/onebravekid>`_, `Congbo Song <https://github.com/songnku>`_, `Zongbo Shi <https://www.birmingham.ac.uk/staff/profiles/gees/shi-zongbo>`_, `David Topping <https://research.manchester.ac.uk/en/persons/david.topping>`_, `Zhonghua Zheng <https://zhonghua-zheng.github.io/>`_ (zhonghua.zheng@manchester.ac.uk)
 
 Installation
 ============
