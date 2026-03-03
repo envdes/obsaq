@@ -16,11 +16,11 @@ with open("README.rst", "r") as fp:
 
 setup(
     name="obsaq",
-    version="0.0.1",
+    version="0.0.2",
     author="Jinhui Yu",
     author_email="yjh12586@163.com",
     url="https://github.com/envdes/obsaq",
-    description="A Python package for accessing observational air quality data",
+    description="An open-source framework for fast and scalable air pollution data retrieval",
     long_description=long_description,
     license="MIT",
     classifiers=classifiers,
