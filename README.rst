@@ -1,7 +1,7 @@
 .. image:: figures/LOGO_FOR_ObsAQ.png
    :align: center
 
-ObsAQ: A Python package for accessing observational air quality data
+ObsAQ: An open-source framework for fast and scalable air pollution data retrieval
 --------------------------------------------------------------------
 |DOI| |docs| |GitHub| |license|
 
